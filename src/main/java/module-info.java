@@ -3,6 +3,6 @@ module poofinal.hoursmanager {
     requires javafx.fxml;
 
 
-    opens poofinal.hoursmanager to javafx.fxml;
-    exports poofinal.hoursmanager;
+    opens poofinal.application to javafx.fxml;
+    exports poofinal.application;
 }
