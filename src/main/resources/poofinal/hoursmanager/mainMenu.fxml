@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.hoursmanager.MainMenu">
+   <children>
+      <Line endX="-38.4000244140625" endY="296.0" layoutX="438.0" layoutY="152.0" startX="-38.4000244140625" startY="-116.0" />
+      <Pane layoutX="92.0" layoutY="115.0" prefHeight="250.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="loginAluno" layoutX="56.0" layoutY="210.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Login" />
+            <TextField fx:id="loginCPF" layoutX="26.0" layoutY="78.0" promptText="XXX.XXX.XXX-XX" />
+            <TextField fx:id="passwordCPF" layoutX="26.0" layoutY="150.0" />
+            <Label layoutX="26.0" layoutY="61.0" text="CPF" />
+            <Label layoutX="26.0" layoutY="132.0" text="Senha" />
+            <Text layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login como aluno" textAlignment="CENTER" wrappingWidth="159.30777587890623">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="509.0" layoutY="115.0" prefHeight="250.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="loginServidor" layoutX="56.0" layoutY="210.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Login" />
+            <TextField fx:id="loginSIAPE" layoutX="26.0" layoutY="78.0" promptText="XXXXXXXXX" />
+            <TextField fx:id="passwordSIAPE" layoutX="26.0" layoutY="150.0" />
+            <Label layoutX="26.0" layoutY="61.0" text="SIAPE" />
+            <Label layoutX="26.0" layoutY="132.0" text="Senha" />
+            <Text layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login como servidor" textAlignment="CENTER" wrappingWidth="159.30777587890623">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
