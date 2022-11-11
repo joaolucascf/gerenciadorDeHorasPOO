@@ -2,6 +2,7 @@ package poofinal.application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -10,8 +11,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("mainMenu.fxml")));
         stage.setTitle("Gerenciador de horas complementares");
         stage.setScene(scene);
         stage.show();

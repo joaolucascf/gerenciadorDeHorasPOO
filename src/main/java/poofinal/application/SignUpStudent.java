@@ -10,10 +10,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import poofinal.entities.Course;
 import poofinal.entities.Student;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SignUpStudent implements Initializable {
@@ -26,9 +28,19 @@ public class SignUpStudent implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBoxCourse;
     @FXML
+    private ChoiceBox<String> choiceBoxSemester;
+    @FXML
+    private ChoiceBox<String> choiceBoxYear;
+    @FXML
     private TextField fieldName;
+    @FXML
+    private TextField fieldPassword;
+    @FXML
+    private TextField fieldCPF;
     private Stage stage;
     private Scene scene;
+    private String year[] = {"2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"};
+    private String semester[] = {"1", "2"};
     @FXML
     void EventButtonCancel(ActionEvent event) throws IOException {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -36,11 +48,44 @@ public class SignUpStudent implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    void eventButtonOK(ActionEvent event) {
+        this.readerInformation();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for(Student.Course course : Student.Course.values()){
+        for(Course course : Course.values()){
             choiceBoxCourse.getItems().add(course.getDescription());
         }
+        choiceBoxYear.getItems().addAll(year);
+        choiceBoxSemester.getItems().addAll(semester);
+    }
+
+    public void readerInformation(){
+        String cpf = fieldCPF.getText();
+        String password = fieldPassword.getText();
+        String name = fieldName.getText();
+        String email = fieldEmail.getText();
+        String matriculation = fieldMatriculation.getText();
+        String course = choiceBoxCourse.getValue();
+        int semester = Integer.parseInt(choiceBoxSemester.getValue());
+        int year = Integer.parseInt(choiceBoxYear.getValue());
+        if(semester == 2){
+            semester += 5;
+        }
+        LocalDate joined = LocalDate.of(year, semester, 01);
+        LocalDate gradutionForecast;
+        Course courseFinal;
+        if(course.equals("Engenharia de Computação")){
+            gradutionForecast = LocalDate.of((year + 5), semester, 01);
+            courseFinal = Course.ENGENHARIA;
+        }
+        else{
+            gradutionForecast = LocalDate.of((year + 4), semester, 01);
+            courseFinal = Course.CIENCIA;
+        }
+        Management.addStudent(new Student(password, cpf, matriculation, joined, gradutionForecast, name, email, courseFinal));
+        Management.printStudent();
     }
 }
 
