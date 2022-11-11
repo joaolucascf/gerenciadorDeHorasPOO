@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="526.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.application.SignUpStudent">
    <children>
-      <Text layoutX="111.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadatro Aluno">
+      <Text layoutX="111.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Aluno">
          <font>
             <Font size="16.0" />
          </font>

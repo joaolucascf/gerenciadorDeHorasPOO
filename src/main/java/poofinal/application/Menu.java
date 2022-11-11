@@ -10,18 +10,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import poofinal.entities.Course;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
-public class Menu{
-
+public class Menu implements Initializable{
     @FXML
     private Button loginAluno;
     @FXML
@@ -36,6 +37,11 @@ public class Menu{
     private PasswordField fieldPasswordTeacher;
     private Stage stage;
     private Scene scene;
+
+    public void initialize(URL url, ResourceBundle resourceBundle) { //initialize sempre executa quando a cena entra na tela
+        fieldCPF.setTextFormatter(new TextFormatter<String>(new formatCPF().justNumbers)); //formata o fieldCPF para aceitar apenas números
+    }
+
     @FXML
     void eventLoginAluno(ActionEvent event) throws IOException {
         //Validar, caso o e-mail e a senha não existam nos cadastros,
@@ -56,5 +62,4 @@ public class Menu{
         stage.setScene(scene);
         stage.show();
     }
-
 }
