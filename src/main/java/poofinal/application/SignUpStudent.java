@@ -63,8 +63,24 @@ public class SignUpStudent implements Initializable {
     }
     @FXML
     void eventButtonOK(ActionEvent event) {
-        readerInformation();
+        validateEntries();
     }
+
+    private void validateEntries() {
+        if (fieldName.getText().isEmpty()){
+            fieldName.setStyle("-fx-border-color:red");
+        }
+        if(fieldEmail.getText().isEmpty()){
+            fieldEmail.setStyle("-fx-border-color:red");
+        }
+        if(fieldMatriculation.getText().isEmpty()){
+            fieldMatriculation.setStyle("-fx-border-color:red");
+        }
+        /*if(choiceBoxCourse.getValue().equals(null)){
+            choiceBoxCourse.setStyle("-fx-border-color:red");
+        }*/
+    }
+
     public void readerInformation(){
         String cpf = fieldCPF.getText();
         String password = fieldPassword.getText();
@@ -89,7 +105,6 @@ public class SignUpStudent implements Initializable {
             courseFinal = Course.CIENCIA;
         }
         Management.addStudent(new Student(password, cpf, matriculation, joined, gradutionForecast, name, email, courseFinal));
-        Management.printStudent();
     }
 }
 

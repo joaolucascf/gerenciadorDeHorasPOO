@@ -35,4 +35,8 @@ public class Student extends Pessoa{
                 ", course=" + course.getDescription() +
                 '}';
     }
+
+    public String getCPF(){
+        return this.cpf;
+    }
 }
