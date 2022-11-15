@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import poofinal.entities.Course;
 import poofinal.entities.Student;
@@ -20,11 +19,16 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SignUpStudent implements Initializable {
+
     private final int MATRICULATION_MAX_LENGTH = 8;
+
     @FXML
-    public Label warningMatriculation;
-    public Label warningEmail;
-    public Label warningName;
+    public Label emptyName;
+    public Label invalidEmail;
+    public Label emptyEmail;
+    public Label invalidMatriculation;
+    public Label emptyMatriculation;
+
     @FXML
     private TextField fieldEmail;
     @FXML
@@ -39,8 +43,10 @@ public class SignUpStudent implements Initializable {
     private TextField fieldName;
     @FXML
     private TextField fieldPassword;
+
     private Stage stage;
     private Scene scene;
+
     private String year[] = {"2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"};
     private String semester[] = {"1", "2"};
 
@@ -80,49 +86,44 @@ public class SignUpStudent implements Initializable {
     }
 
     private boolean validateEntries(){
-        String noEmail = "Por favor, informe seu e-mail.";
-        String wrongEmail = "E-mail inválido.";
         refreshValidationFields();
         fieldName.setStyle(null);
 
         if (fieldName.getText().isEmpty()){
             fieldName.setStyle("-fx-border-color:red");
-            warningName.setVisible(true);
+            emptyName.setVisible(true);
             return false;
         }
 
         if(fieldEmail.getText().isEmpty()){
             fieldEmail.setStyle("-fx-border-color:red");
-            warningEmail.setText(noEmail);
-            warningEmail.setVisible(true);
+            emptyEmail.setVisible(true);
             return false;
         }else
             if(!FormatClass.checkEmail(fieldEmail.getText())){
             fieldEmail.setStyle("-fx-border-color:red");
-            warningEmail.setText(wrongEmail);
-            warningEmail.setVisible(true);
+            invalidEmail.setVisible(true);
             return false;
         }
         if(fieldMatriculation.getText().isEmpty()){
             fieldMatriculation.setStyle("-fx-border-color:red");
-            warningMatriculation.setText("Por favor, informe seu número de matricula.");
-            warningMatriculation.setVisible(true);
+            emptyMatriculation.setVisible(true);
             return false;
         }else if(fieldMatriculation.getLength()<8){
             fieldMatriculation.setStyle("-fx-border-color:red");
-            warningMatriculation.setVisible(true);
+            invalidMatriculation.setVisible(true);
             return false;
         }
         if(choiceBoxCourse.getValue().equals(" ")){
             choiceBoxCourse.setStyle("-fx-border-color:red");
             return false;
         }
-        if(choiceBoxSemester.getValue().equals(" ")){
-            choiceBoxSemester.setStyle("-fx-border-color:red");
-            return false;
-        }
         if(choiceBoxYear.getValue().equals(" ")){
             choiceBoxYear.setStyle("-fx-border-color:red");
+            return false;
+        }
+        if(choiceBoxSemester.getValue().equals(" ")){
+            choiceBoxSemester.setStyle("-fx-border-color:red");
             return false;
         }
         if(fieldPassword.getText().isEmpty()){
@@ -140,9 +141,11 @@ public class SignUpStudent implements Initializable {
         choiceBoxCourse.setStyle(null);
         choiceBoxYear.setStyle(null);
         choiceBoxSemester.setStyle(null);
-        warningName.setVisible(false);
-        warningEmail.setVisible(false);
-        warningMatriculation.setVisible(false);
+        emptyName.setVisible(false);
+        emptyEmail.setVisible(false);
+        invalidEmail.setVisible(false);
+        emptyMatriculation.setVisible(false);
+        invalidMatriculation.setVisible(false);
     }
 
     private void readerInformation() throws IOException {
