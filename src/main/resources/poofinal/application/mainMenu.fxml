@@ -16,8 +16,8 @@
       <Pane layoutX="92.0" layoutY="115.0" prefHeight="298.0" prefWidth="200.0">
          <children>
             <Button fx:id="loginAluno" layoutX="56.0" layoutY="210.0" mnemonicParsing="false" onAction="#eventLoginAluno" prefHeight="26.0" prefWidth="89.0" text="Login" />
-            <TextField fx:id="fieldCPF" layoutX="26.0" layoutY="78.0" promptText="XXX.XXX.XXX-XX" />
-            <Label layoutX="26.0" layoutY="61.0" text="CPF" />
+            <TextField fx:id="fieldMatriculation" layoutX="26.0" layoutY="78.0" />
+            <Label layoutX="26.0" layoutY="61.0" text="Matrícula" />
             <Label layoutX="26.0" layoutY="132.0" text="Senha" />
             <Text layoutX="21.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login como aluno" textAlignment="CENTER" wrappingWidth="159.30777587890623">
                <font>
@@ -35,7 +35,7 @@
       <Pane layoutX="509.0" layoutY="115.0" prefHeight="250.0" prefWidth="200.0">
          <children>
             <Button fx:id="loginServidor" layoutX="56.0" layoutY="210.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Login" />
-            <TextField fx:id="fieldSIAPE" layoutX="26.0" layoutY="78.0" promptText="XXXXXXXXX" />
+            <TextField fx:id="fieldSIAPE" layoutX="26.0" layoutY="78.0" />
             <Label layoutX="26.0" layoutY="61.0" text="SIAPE" />
             <Label layoutX="26.0" layoutY="132.0" text="Senha" />
             <Text layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login como servidor" textAlignment="CENTER" wrappingWidth="159.30777587890623">

@@ -1,10 +1,14 @@
 package poofinal.entities;
 
 public abstract class Pessoa {
-    private String name;
+    private final String name;
 
     public Pessoa(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
