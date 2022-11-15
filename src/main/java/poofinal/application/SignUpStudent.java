@@ -45,7 +45,7 @@ public class SignUpStudent implements Initializable {
     private String semester[] = {"1", "2"};
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fieldMatriculation.setTextFormatter(new TextFormatter<String>(new FormatClass().justNumbers));
+        FormatClass.onlyAcceptNumbers(fieldMatriculation);
         FormatClass.addTextLimiter(fieldMatriculation, MATRICULATION_MAX_LENGTH);
         initializeChoiceBoxes();
     }

@@ -33,7 +33,8 @@ public class Menu implements Initializable{
     private Scene scene;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fieldMatriculation.setTextFormatter(new TextFormatter<String>(new FormatClass().justNumbers));
+        FormatClass.onlyAcceptNumbers(fieldMatriculation);
+        FormatClass.addTextLimiter(fieldMatriculation, 8);
     }
 
     @FXML
@@ -51,7 +52,6 @@ public class Menu implements Initializable{
         else{
             System.out.println("Erro");
         }
-
     }
     @FXML
     void eventLoginServidor(ActionEvent event) {

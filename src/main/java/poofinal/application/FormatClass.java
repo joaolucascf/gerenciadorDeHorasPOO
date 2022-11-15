@@ -11,13 +11,6 @@ public class FormatClass {
     private static Pattern patNum = Pattern.compile("[0-9]*");
     private static Pattern patEmail = Pattern.compile("^(.+)@(\\S+)$");
 
-    public UnaryOperator<TextFormatter.Change> justNumbers = c -> {
-        if(patNum.matcher(c.getControlNewText()).matches()){
-            return c;
-        }
-        return null;
-    };
-
     public static boolean checkEmail(String email){
         if(patEmail.matcher(email).matches()) {
             String[] splitter = email.split("@");
@@ -35,6 +28,19 @@ public class FormatClass {
                 if (tf.getText().length() > maxLength) {
                     String s = tf.getText().substring(0, maxLength);
                     tf.setText(s);
+                }
+            }
+        });
+    }
+
+    public static void onlyAcceptNumbers(final TextField entry){
+        entry.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                int lastIndex = entry.getText().length()-1;
+                if(!patNum.matcher(entry.getText()).matches()){
+                    String temp = entry.getText().substring(0,lastIndex);
+                    entry.setText(temp);
                 }
             }
         });
