@@ -1,6 +1,8 @@
 package poofinal.entities;
 
-public abstract class Pessoa {
+import java.io.Serializable;
+
+public abstract class Pessoa implements Serializable {
     private final String name;
 
     public Pessoa(String name) {

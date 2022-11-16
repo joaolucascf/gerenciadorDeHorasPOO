@@ -1,6 +1,8 @@
 package poofinal.entities;
 
-public enum Course{
+import java.io.Serializable;
+
+public enum Course implements Serializable {
     ENGENHARIA("Engenharia de Computação"),
     CIENCIA("Ciência da Computação");
 

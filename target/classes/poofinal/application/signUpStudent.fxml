@@ -33,17 +33,27 @@
       <Text layoutX="295.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text layoutX="56.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
       <TextField fx:id="fieldPassword" layoutX="57.0" layoutY="358.0" prefHeight="25.0" prefWidth="210.0" />
-      <Label fx:id="warningMatriculation" layoutX="131.0" layoutY="202.0" prefHeight="15.0" prefWidth="136.0" text="Número de matricula invalido." textFill="RED" visible="false">
+      <Label fx:id="emptyName" contentDisplay="RIGHT" layoutX="139.0" layoutY="95.0" prefHeight="15.0" prefWidth="128.0" text="Por favor, informe seu nome." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="warningEmail" layoutX="199.0" layoutY="149.0" prefHeight="15.0" prefWidth="68.0" text="E-mail inválido." textAlignment="RIGHT" textFill="RED" visible="false">
+      <Label fx:id="invalidEmail" layoutX="187.0" layoutY="148.0" prefHeight="15.0" prefWidth="80.0" text="E-mail inválido." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="warningName" layoutX="138.0" layoutY="96.0" prefHeight="15.0" prefWidth="129.0" text="Por favor, informe seu nome." textAlignment="RIGHT" textFill="RED" visible="false">
+      <Label fx:id="emptyEmail" layoutX="137.0" layoutY="148.0" prefHeight="15.0" prefWidth="130.0" text="Por favor, informe seu e-mail." textFill="RED" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidMatriculation" layoutX="134.0" layoutY="202.0" prefHeight="15.0" prefWidth="133.0" text="Número de matricula invalido." textFill="RED" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="emptyMatriculation" layoutX="123.0" layoutY="202.0" prefHeight="15.0" prefWidth="143.0" text="Por favor, informe sua matrícula." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>
