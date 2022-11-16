@@ -12,17 +12,14 @@ import java.util.HashMap;
 public class Management {
     private static HashMap<String, Student> studentBuffer = new HashMap<String, Student>();
     private static HashMap<String, File> registrationBuffer = new HashMap<String, File>();
-    private static Stage stage;
     private static Scene scene;
 
 
     public static void addStudent(Student student) throws IOException {
         File file = new File(student.getName().concat(".dat"));
-        FileOutputStream outFile = new FileOutputStream(file);
-        ObjectOutputStream outStream = new ObjectOutputStream(outFile);
+        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
         outStream.writeObject(student);
         outStream.close();
-        outFile.close();
         registrationBuffer.put(student.getMatriculation(), file);
     }
 
@@ -31,10 +28,10 @@ public class Management {
         for(String keyMatriculation : registrationBuffer.keySet()){
             if (keyMatriculation.equals(matriculation)) {
                 File file = registrationBuffer.get(keyMatriculation);
-                FileInputStream inFile = new FileInputStream(file);
-                ObjectInputStream inStream = new ObjectInputStream(inFile);
+                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(file));
                 student = (Student) inStream.readObject();
-                if(student.getPassword().equals(password)){
+                inStream.close();
+                if (student.getPassword().equals(password)) {
                     studentBuffer.put(matriculation, student);
                     return true;
                 }

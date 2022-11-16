@@ -10,25 +10,18 @@ public class StudentPage {
 
     @FXML
     private Button buttonActivities;
-
     @FXML
     private Text fieldCourse;
-
     @FXML
     private Text fieldGraduationForecast;
-
     @FXML
     private Text fieldJoined;
-
     @FXML
     private ListView<?> fieldListView;
-
     @FXML
     private Text fieldMatriculation;
-
     @FXML
     private Text fieldName;
-
     @FXML
     void eventButtonActivities(ActionEvent event) {
 

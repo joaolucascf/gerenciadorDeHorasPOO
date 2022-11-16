@@ -11,13 +11,11 @@ public class ControllerWindowRegistrationOK {
 
     @FXML
     private Button buttonOK;
-
     private Stage stage;
     private Scene scene;
     @FXML
     void eventButtonOK(ActionEvent event) throws IOException {
-        String nameFXML = "mainMenu.fxml";
-        Management.changeScene(nameFXML, event);
+        Management.changeScene("mainMenu.fxml", event);
     }
 
 }

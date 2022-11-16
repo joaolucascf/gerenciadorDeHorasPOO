@@ -38,7 +38,7 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="invalidEmail" layoutX="200.0" layoutY="148.0" prefHeight="15.0" prefWidth="67.0" text="E-mail inválido." textFill="RED" visible="false">
+      <Label fx:id="invalidEmail" layoutX="187.0" layoutY="148.0" prefHeight="15.0" prefWidth="80.0" text="E-mail inválido." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>

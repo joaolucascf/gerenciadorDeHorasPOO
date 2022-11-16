@@ -67,15 +67,13 @@ public class SignUpStudent implements Initializable {
 
     @FXML
     void EventButtonCancel(ActionEvent event) throws IOException {
-        String nameFXML = "mainMenu.fxml";
-        Management.changeScene(nameFXML, event);
+        Management.changeScene("mainMenu.fxml", event);
     }
     @FXML
     void eventButtonOK(ActionEvent event) throws IOException {
         if(validateEntries()) {
             readerInformation();
-            String nameFXML = "windowRegistrationOK.fxml";
-            Management.changeScene(nameFXML, event);
+            Management.changeScene("windowRegistrationOK.fxml", event);
         }
     }
 
