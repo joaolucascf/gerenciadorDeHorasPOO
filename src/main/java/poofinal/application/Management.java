@@ -1,50 +1,41 @@
 package poofinal.application;
 
+import javafx.application.Application;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 import poofinal.entities.Student;
 import java.io.*;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Management {
+    private static HashMap<String, Student> studentBuffer = new HashMap<String, Student>();
     private static HashMap<String, File> registrationBuffer = new HashMap<String, File>();
     private static Scene scene;
 
 
     public static void addStudent(Student student) throws IOException {
-        String studentFilePath = "src\\main\\resources\\Files\\" + student.getMatriculation().concat(".dat");
-        String regFilePath = "src\\main\\resources\\Files\\mapping\\HashMap.dat";
-        File studentFile = new File(studentFilePath);
-        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(studentFile));
+        File file = new File("src\\main\\resources\\Files\\" + student.getName().concat(".dat"));
+        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
         outStream.writeObject(student);
         outStream.close();
-        System.out.println("Dados do estudantes salvos em salvo em: "+ studentFile.getAbsolutePath());
-        registrationBuffer.put(student.getMatriculation(), studentFile);
-        File regFile = new File(regFilePath);
-        ObjectOutputStream regObjFile = new ObjectOutputStream(new FileOutputStream(regFile));
-        for(Map.Entry<String, File> register : registrationBuffer.entrySet()){
-            regObjFile.writeUTF(register.getKey());
-            regObjFile.writeObject(studentFile);
-        }
-        regObjFile.close();
+        registrationBuffer.put(student.getMatriculation(), file);
     }
 
     public static boolean checkLoginStudent(String matriculation, String password) throws IOException, ClassNotFoundException {
         Student student;
-        if(loadFiles()) {
-            for (String keyMatriculation : registrationBuffer.keySet()) {
-                if (keyMatriculation.equals(matriculation)) {
-                    File file = registrationBuffer.get(keyMatriculation);
-                    ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(file));
-                    student = (Student) inStream.readObject();
-                    inStream.close();
-                    if (student.getPassword().equals(password)) {
-                        return true;
-                    }
+        for (String keyMatriculation : registrationBuffer.keySet()) {
+            if (keyMatriculation.equals(matriculation)) {
+                File file = registrationBuffer.get(keyMatriculation);
+                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(file));
+                student = (Student) inStream.readObject();
+                inStream.close();
+                if (student.getPassword().equals(password)) {
+                    studentBuffer.put(matriculation, student);
+                    return true;
                 }
             }
         }
@@ -58,20 +49,17 @@ public class Management {
         stage.show();
     }
 
-    public static boolean loadFiles() throws IOException, ClassNotFoundException {
-        String regFilePath = "src\\main\\resources\\Files\\mapping\\HashMap.dat";
-        File regFile = new File(regFilePath);
-        ObjectInputStream regObjFile = new ObjectInputStream(new FileInputStream(regFile));
-        try{
-            for(;;){
-                registrationBuffer.put(regObjFile.readUTF(),(File)regObjFile.readObject());
+    public static void loadFiles() throws IOException, ClassNotFoundException {
+        File path = new File("src\\main\\resources\\Files\\");
+        if (path.exists() && path.isDirectory()) {
+            File listFiles[] = path.listFiles();
+            for(int i = 0; i < listFiles.length; i++){
+                System.out.println("File " + (i+1) + ": " + path + listFiles[i].getName());
+                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\Files\\" + listFiles[i].getName()));
+                Student student = (Student) inStream.readObject();
+                inStream.close();
+                registrationBuffer.put(student.getMatriculation(), listFiles[i]);
             }
-        }catch (EOFException e){
-            System.out.println("Registros carregados com sucesso.");
-            return true;
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-            return false;
         }
     }
 }
