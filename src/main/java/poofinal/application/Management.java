@@ -18,7 +18,7 @@ public class Management {
 
 
     public static void addStudent(Student student) throws IOException {
-        File file = new File("src\\main\\resources\\Files\\" + student.getName().concat(".dat"));
+        File file = new File("src\\main\\resources\\files\\" + student.getName().concat(".dat"));
         ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
         outStream.writeObject(student);
         outStream.close();
@@ -50,12 +50,12 @@ public class Management {
     }
 
     public static void loadFiles() throws IOException, ClassNotFoundException {
-        File path = new File("src\\main\\resources\\Files\\");
+        File path = new File("src\\main\\resources\\files\\");
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
             for(int i = 0; i < listFiles.length; i++){
                 System.out.println("File " + (i+1) + ": " + path + listFiles[i].getName());
-                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\Files\\" + listFiles[i].getName()));
+                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\" + listFiles[i].getName()));
                 Student student = (Student) inStream.readObject();
                 inStream.close();
                 registrationBuffer.put(student.getMatriculation(), listFiles[i]);
