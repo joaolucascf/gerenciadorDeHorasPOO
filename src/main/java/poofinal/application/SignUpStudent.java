@@ -2,9 +2,7 @@ package poofinal.application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -69,19 +67,15 @@ public class SignUpStudent implements Initializable {
 
     @FXML
     void EventButtonCancel(ActionEvent event) throws IOException {
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(FXMLLoader.load(getClass().getResource("mainMenu.fxml")));
-        stage.setScene(scene);
-        stage.show();
+        String nameFXML = "mainMenu.fxml";
+        Management.changeScene(nameFXML, event);
     }
     @FXML
     void eventButtonOK(ActionEvent event) throws IOException {
         if(validateEntries()) {
             readerInformation();
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(FXMLLoader.load(getClass().getResource("windowRegistrationOK.fxml")));
-            stage.setScene(scene);
-            stage.show();
+            String nameFXML = "windowRegistrationOK.fxml";
+            Management.changeScene(nameFXML, event);
         }
     }
 
