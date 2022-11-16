@@ -33,7 +33,7 @@ public class Menu implements Initializable{
     @FXML
     void eventLoginAluno(ActionEvent event) throws IOException, ClassNotFoundException {
         Management.loadFiles();// Estamos usando uma string estatica. Precisamos fazer generica
-        if (Management.checkLoginStudent(fieldMatriculation.getText(), fieldPasswordStudent.getText()) == true) {
+        if (Management.checkLoginStudent(fieldMatriculation.getText(), fieldPasswordStudent.getText())) {
             Management.changeScene("StudentPage.fxml", event);
         } else {
             System.out.println("Erro");
