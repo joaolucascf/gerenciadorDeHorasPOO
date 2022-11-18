@@ -30,15 +30,19 @@ public class Student extends Pessoa implements Serializable {
         return password;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "password='" + password + '\'' +
-                ", matriculation='" + matriculation + '\'' +
-                ", joined=" + joined.format(DateTimeFormatter.ofPattern("LLLL' de 'yyyy")) +
-                ", graduationForecast=" + graduationForecast.format(DateTimeFormatter.ofPattern("LLLL' de 'yyyy")) +
-                ", email='" + email + '\'' +
-                ", course=" + course.getDescription() +
-                '}';
+    public String getJoined() {
+        return joined.format(DateTimeFormatter.ofPattern("MM/yyyy"));
+    }
+
+    public String getGraduationForecast() {
+        return graduationForecast.format(DateTimeFormatter.ofPattern("MM/yyyy"));
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Course getCourse() {
+        return course;
     }
 }

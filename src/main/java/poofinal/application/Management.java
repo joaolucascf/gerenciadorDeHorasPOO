@@ -16,6 +16,19 @@ public class Management {
     private static HashMap<String, File> registrationBuffer = new HashMap<String, File>();
     private static Scene scene;
 
+    private static String keyMatriculation;
+
+    public static void setKeyMatriculation(String keyMatriculation) {
+        Management.keyMatriculation = keyMatriculation;
+    }
+
+    public static String getKeyMatriculation() {
+        return keyMatriculation;
+    }
+
+    public static HashMap<String, Student> getStudentBuffer() {
+        return studentBuffer;
+    }
 
     public static void addStudent(Student student) throws IOException {
         File file = new File("src\\main\\resources\\files\\" + student.getName().concat(".dat"));
@@ -34,7 +47,8 @@ public class Management {
                 student = (Student) inStream.readObject();
                 inStream.close();
                 if (student.getPassword().equals(password)) {
-                    studentBuffer.put(matriculation, student);
+                    studentBuffer.put(student.getMatriculation(), student);
+                    Management.setKeyMatriculation(keyMatriculation);
                     return true;
                 }
             }
@@ -54,7 +68,7 @@ public class Management {
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
             for(int i = 0; i < listFiles.length; i++){
-                System.out.println("File " + (i+1) + ": " + path + listFiles[i].getName());
+                //System.out.println("File " + (i+1) + ": " + path + listFiles[i].getName());
                 ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\" + listFiles[i].getName()));
                 Student student = (Student) inStream.readObject();
                 inStream.close();
