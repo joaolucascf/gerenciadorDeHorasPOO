@@ -12,11 +12,12 @@ import poofinal.entities.Course;
 import poofinal.entities.Student;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class ControllerSignUpStudent implements Initializable {
+public class SignUpStudent implements Initializable {
 
     private final int MATRICULATION_MAX_LENGTH = 8;
 

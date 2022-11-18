@@ -6,12 +6,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import poofinal.entities.Pessoa;
 import poofinal.entities.Student;
 
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class ControllerStudentPage implements Initializable {
+public class StudentPage implements Initializable {
 
     @FXML
     private Button buttonActivities;

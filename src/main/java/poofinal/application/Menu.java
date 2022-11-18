@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerMenu implements Initializable{
+public class Menu implements Initializable{
     @FXML
     private Button buttonLoginStudent;
 
