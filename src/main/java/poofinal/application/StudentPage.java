@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 import poofinal.entities.Pessoa;
 import poofinal.entities.Student;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -17,6 +18,9 @@ public class StudentPage implements Initializable {
 
     @FXML
     private Button buttonActivities;
+
+    @FXML
+    private Button buttonExit;
 
     @FXML
     private Label emptyCourse;
@@ -49,5 +53,10 @@ public class StudentPage implements Initializable {
         emptyMatriculation.setText(student.getMatriculation());
         emptyJoined.setText(student.getJoined());
         emptyGraduationForecast.setText(student.getGraduationForecast());
+    }
+
+    @FXML
+    void eventButtonExit(ActionEvent event) throws IOException {
+        Management.changeScene("mainMenu.fxml", event);
     }
 }

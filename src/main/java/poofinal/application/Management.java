@@ -15,7 +15,6 @@ public class Management {
     private static HashMap<String, Student> studentBuffer = new HashMap<String, Student>();
     private static HashMap<String, File> registrationBuffer = new HashMap<String, File>();
     private static Scene scene;
-
     private static String keyMatriculation;
 
     public static void setKeyMatriculation(String keyMatriculation) {
@@ -31,7 +30,7 @@ public class Management {
     }
 
     public static void addStudent(Student student) throws IOException {
-        File file = new File("src\\main\\resources\\files\\" + student.getName().concat(".dat"));
+        File file = new File("src\\main\\resources\\files\\studentRegistration\\" + student.getName().concat(".dat"));
         ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
         outStream.writeObject(student);
         outStream.close();
@@ -64,12 +63,12 @@ public class Management {
     }
 
     public static void loadFiles() throws IOException, ClassNotFoundException {
-        File path = new File("src\\main\\resources\\files\\");
+        File path = new File("src\\main\\resources\\files\\studentRegistration\\");
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
             for(int i = 0; i < listFiles.length; i++){
                 //System.out.println("File " + (i+1) + ": " + path + listFiles[i].getName());
-                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\" + listFiles[i].getName()));
+                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\studentRegistration\\" + listFiles[i].getName()));
                 Student student = (Student) inStream.readObject();
                 inStream.close();
                 registrationBuffer.put(student.getMatriculation(), listFiles[i]);
