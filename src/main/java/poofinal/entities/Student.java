@@ -1,6 +1,8 @@
 package poofinal.entities;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -51,11 +53,19 @@ public class Student extends Pessoa implements Serializable {
 
     public void setActivities(Activities activitie) throws IOException {
         listActivities.add(activitie);
-        File file = new File("src\\main\\resources\\files\\studentActivities\\" + activitie.getDescription() + ".dat");
-        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
-        outStream.writeObject(activitie);
-        outStream.close();
-        listFilesActivities.add(file);
+        Path path = Path.of("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
+        if(!Files.exists(path)){
+            Files.createDirectory(path);
+            File file = new File(path + "\\" + activitie.getDescription() + ".dat");
+            ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
+            outStream.writeObject(activitie);
+            outStream.close();
+        } else{
+            File file = new File(path + "\\" + activitie.getDescription() + ".dat");
+            ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
+            outStream.writeObject(activitie);
+            outStream.close();
+        }
     }
 
     public List<Activities> getListActivities(){
