@@ -1,7 +1,6 @@
 package poofinal.entities;
 
-import java.io.File;
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -48,5 +47,18 @@ public class Student extends Pessoa implements Serializable {
 
     public Course getCourse() {
         return course;
+    }
+
+    public void setActivities(Activities activitie) throws IOException {
+        listActivities.add(activitie);
+        File file = new File("src\\main\\resources\\files\\studentActivities\\" + activitie.getDescription() + ".dat");
+        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
+        outStream.writeObject(activitie);
+        outStream.close();
+        listFilesActivities.add(file);
+    }
+
+    public List<Activities> getListActivities(){
+        return listActivities;
     }
 }

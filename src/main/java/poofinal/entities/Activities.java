@@ -15,9 +15,9 @@ public enum Activities implements Serializable {
     PARTICIPACAO_EVENTO_REGIONAL("Participação em Evento Regional", "17 Horas"),
     PARTICIPACAO_EVENTO_NACIONAL("Participação em Evento Nacional", "34 Horas"),
     PARTICIPACAO_EVENTO_INTERNACIONAL("Participação em Evento Internacional", "34 Horas"),
-    PUBLICACAO_ARTIGO_REGIONAL("Publicação de Arigo Regional", "34 Horas"),
-    PUBLICACAO_ARTIGO_NACIONAL("Publicação de Arigo Nacional", "51 Horas"),
-    PUBLICACAO_ARTIGO_INTERNACIONAL("Publicação de Arigo Internacional", "68 Horas"),
+    PUBLICACAO_ARTIGO_REGIONAL("Publicação de Artigo Regional", "34 Horas"),
+    PUBLICACAO_ARTIGO_NACIONAL("Publicação de Artigo Nacional", "51 Horas"),
+    PUBLICACAO_ARTIGO_INTERNACIONAL("Publicação de Artigo Internacional", "68 Horas"),
     REPRESENTACAO_ESTUDANTIL("Representação Estudantil", "51 Horas"),
     PREMIOS_DISTINCOES("Obtenção de Prêmios e Distinções", "68 Horas"),
     CERTIFICADOS_PROFISSIONAIS("Certificações profissionais", "51 Horas");
@@ -31,5 +31,14 @@ public enum Activities implements Serializable {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getHours() {
+        return hours;
+    }
+
+    @Override
+    public String toString() {
+        return getDescription() + "     " + getHours();
     }
 }
