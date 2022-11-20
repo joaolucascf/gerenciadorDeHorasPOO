@@ -41,6 +41,8 @@ public class ControllerAddActivities implements Initializable {
     void eventButtonOK(ActionEvent event) throws IOException {
         if(validateEntries()) {
             readerInformation();
+            Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
+            student.createSavingFile();
             Management.changeScene("StudentPage.fxml", event);
         }
     }

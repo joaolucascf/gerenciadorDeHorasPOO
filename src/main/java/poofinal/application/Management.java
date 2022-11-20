@@ -46,7 +46,6 @@ public class Management {
                 student = (Student) inStream.readObject();
                 inStream.close();
                 if (student.getPassword().equals(password)) {
-                    studentBuffer.put(student.getMatriculation(), student);
                     Management.setKeyMatriculation(keyMatriculation);
                     return true;
                 }
@@ -67,10 +66,10 @@ public class Management {
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
             for(int i = 0; i < listFiles.length; i++){
-                //System.out.println("File " + (i+1) + ": " + path + listFiles[i].getName());
                 ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\studentRegistration\\" + listFiles[i].getName()));
                 Student student = (Student) inStream.readObject();
                 inStream.close();
+                studentBuffer.put(student.getMatriculation(), student);
                 registrationBuffer.put(student.getMatriculation(), listFiles[i]);
             }
         }

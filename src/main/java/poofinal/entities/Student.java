@@ -4,7 +4,10 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,18 +57,13 @@ public class Student extends Pessoa implements Serializable {
     public void setActivities(Activities activitie) throws IOException {
         listActivities.add(activitie);
         Path path = Path.of("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
-        if(!Files.exists(path)){
+        if(!Files.exists(path)) {
             Files.createDirectory(path);
-            File file = new File(path + "\\" + activitie.getDescription() + ".dat");
-            ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
-            outStream.writeObject(activitie);
-            outStream.close();
-        } else{
-            File file = new File(path + "\\" + activitie.getDescription() + ".dat");
-            ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
-            outStream.writeObject(activitie);
-            outStream.close();
         }
+            File file = new File(path + "\\" + activitie.getDescription() + ".dat");
+            ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
+            outStream.writeObject(activitie);
+            outStream.close();
     }
 
     public void loadFilesActivities() throws IOException, ClassNotFoundException {
@@ -83,5 +81,17 @@ public class Student extends Pessoa implements Serializable {
 
     public List<Activities> getListActivities(){
         return listActivities;
+    }
+
+    public void createSavingFile() throws IOException {
+        Path path = Path.of("src\\main\\resources\\files\\studentSavingFiles\\");
+        File file = new File(path + "\\" + getName() + "_" + getMatriculation() + ".dat");
+        DataOutputStream outStream = new DataOutputStream(new FileOutputStream(file));
+        outStream.writeUTF(getName());
+        outStream.writeUTF(getMatriculation());
+        outStream.writeUTF(getEmail());
+        outStream.writeUTF(getCourse().getDescription());
+        outStream.writeUTF(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        outStream.close();
     }
 }
