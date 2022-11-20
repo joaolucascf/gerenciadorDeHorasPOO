@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import poofinal.entities.Student;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,6 +49,8 @@ public class Menu implements Initializable{
     void eventLoginStudent(ActionEvent event) throws IOException, ClassNotFoundException {
         Management.loadFiles();// Estamos usando uma string estatica. Precisamos fazer generica
         if (Management.checkLoginStudent(fieldMatriculation.getText(), fieldPasswordStudent.getText())) {
+            Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
+            student.loadFilesActivities();
             Management.changeScene("StudentPage.fxml", event);
         } else {
             System.out.println("Erro");

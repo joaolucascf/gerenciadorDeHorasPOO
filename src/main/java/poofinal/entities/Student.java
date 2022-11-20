@@ -68,6 +68,19 @@ public class Student extends Pessoa implements Serializable {
         }
     }
 
+    public void loadFilesActivities() throws IOException, ClassNotFoundException {
+        File path = new File("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
+        if (path.exists() && path.isDirectory()) {
+            File listFiles[] = path.listFiles();
+            for (int i = 0; i < listFiles.length; i++) {
+                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\" + listFiles[i].getName()));
+                Activities activities = (Activities) inStream.readObject();
+                inStream.close();
+                listActivities.add(activities);
+            }
+        }
+    }
+
     public List<Activities> getListActivities(){
         return listActivities;
     }
