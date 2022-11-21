@@ -9,13 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import poofinal.entities.Activities;
-import poofinal.entities.Pessoa;
 import poofinal.entities.Student;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class StudentPage implements Initializable {
@@ -44,7 +42,6 @@ public class StudentPage implements Initializable {
     @FXML
     private ListView<Activities> fieldListView;
 
-    private ObservableList<Activities> activitiesObservableList;
     @FXML
     void eventButtonActivities(ActionEvent event) throws IOException {
         Management.changeScene("addActivities.fxml", event);
@@ -75,6 +72,7 @@ public class StudentPage implements Initializable {
     }
 
     public void loadListView() throws IOException, ClassNotFoundException {
+        ObservableList<Activities> activitiesObservableList;
         Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
         activitiesObservableList = FXCollections.observableArrayList(student.getListActivities());
         fieldListView.setItems(activitiesObservableList);

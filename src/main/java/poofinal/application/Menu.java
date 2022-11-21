@@ -58,7 +58,11 @@ public class Menu implements Initializable{
     }
     @FXML
     void eventLoginTeacher(ActionEvent event) {
-
+        try {
+            Management.changeScene("teacherPage.fxml", event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void eventSignUpTeacher(MouseEvent event) throws IOException {

@@ -17,9 +17,9 @@ public class Student extends Pessoa implements Serializable {
     private LocalDate joined;
     private LocalDate graduationForecast;
     private String email;
-    private List<File> listFilesActivities = new ArrayList<File>();
     private List<Activities> listActivities = new ArrayList<>();
     private Course course;
+
     public Student(String password, String matriculation, LocalDate joined, LocalDate graduationForecast, String name, String email, Course course) {
         super(name);
         this.password = password;
@@ -58,8 +58,9 @@ public class Student extends Pessoa implements Serializable {
         listActivities.add(activitie);
         Path path = Path.of("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
         if(!Files.exists(path)) {
-            Files.createDirectory(path);
+            Files.createDirectories(path);
         }
+            //File file = new File(path + "\\" + activitie.getDescription() + checkExistsActivie(activitie) + ".dat");
             File file = new File(path + "\\" + activitie.getDescription() + ".dat");
             ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
             outStream.writeObject(activitie);
@@ -83,15 +84,17 @@ public class Student extends Pessoa implements Serializable {
         return listActivities;
     }
 
-    public void createSavingFile() throws IOException {
-        Path path = Path.of("src\\main\\resources\\files\\studentSavingFiles\\");
-        File file = new File(path + "\\" + getName() + "_" + getMatriculation() + ".dat");
-        DataOutputStream outStream = new DataOutputStream(new FileOutputStream(file));
-        outStream.writeUTF(getName());
-        outStream.writeUTF(getMatriculation());
-        outStream.writeUTF(getEmail());
-        outStream.writeUTF(getCourse().getDescription());
-        outStream.writeUTF(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
-        outStream.close();
-    }
+    /*public String checkExistsActivie(Activities activitie){
+        File path = new File("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
+        if (path.exists() && path.isDirectory()) {
+            File listFiles[] = path.listFiles();
+            for (int i = 0; i < listFiles.length; i++) {
+                String nameActivitie = activitie.getDescription() + ".dat";
+                if(listFiles[i].getName().equals(nameActivitie)){
+                    return "1";
+                }
+            }
+        }
+        return "";
+    } */
 }

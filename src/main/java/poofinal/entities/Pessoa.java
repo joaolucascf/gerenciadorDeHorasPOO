@@ -16,8 +16,6 @@ public abstract class Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return "Pessoa{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }
