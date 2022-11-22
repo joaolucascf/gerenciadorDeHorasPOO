@@ -1,11 +1,11 @@
 package poofinal.application;
 
-import javafx.application.Application;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import poofinal.entities.Activities;
 import poofinal.entities.Student;
 import java.io.*;
 import java.nio.file.Files;
@@ -88,12 +88,31 @@ public class Management {
             Files.createDirectories(path);
         }
         File file = new File(path + "\\" + student.getName() + "_" + student.getMatriculation() + ".dat");
-        DataOutputStream outStream = new DataOutputStream(new FileOutputStream(file));
-        outStream.writeUTF(student.getName());
-        outStream.writeUTF(student.getMatriculation());
-        outStream.writeUTF(student.getEmail());
-        outStream.writeUTF(student.getCourse().getDescription());
-        outStream.writeUTF(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
-        outStream.close();
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+        bufferedWriter.write(student.getName());
+        bufferedWriter.newLine();
+        bufferedWriter.write(student.getMatriculation());
+        bufferedWriter.newLine();
+        bufferedWriter.write(student.getEmail());
+        bufferedWriter.newLine();
+        bufferedWriter.write(student.getCourse().getDescription());
+        bufferedWriter.newLine();
+        bufferedWriter.write(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        bufferedWriter.newLine();
+        bufferedWriter.close();
+    }
+
+    public static void createActivitiesFile(Student student) throws IOException {
+        Path path = Path.of("src\\main\\resources\\files\\studentAllActivities\\");
+        if(!Files.exists(path)) {
+            Files.createDirectories(path);
+        }
+        File file = new File(path + "\\" + student.getName() + "_" + student.getMatriculation() + ".csv");
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+        for(Activities activities : student.getListActivities()) {
+            bufferedWriter.write(activities.getDescription());
+            bufferedWriter.newLine();
+        }
+        bufferedWriter.close();
     }
 }

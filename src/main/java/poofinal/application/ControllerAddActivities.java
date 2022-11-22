@@ -42,6 +42,7 @@ public class ControllerAddActivities implements Initializable {
         if(validateEntries()) {
             readerInformation();
             Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
+            Management.createActivitiesFile(student);
             Management.createSavingFile(student);
             Management.changeScene("StudentPage.fxml", event);
         }
