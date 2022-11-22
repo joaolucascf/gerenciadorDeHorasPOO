@@ -89,9 +89,11 @@ public class Student extends Pessoa implements Serializable {
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
             for (int i = 0; i < listFiles.length; i++) {
-                String nameActivitie = activitie.getDescription() + ".dat";
-                if(listFiles[i].getName().equals(nameActivitie)){
-                    return "1";
+                if(listFiles[i].getName().equals(activitie.getDescription() + "2.dat")){
+                    return "3";
+                }
+                if(listFiles[i].getName().equals(activitie.getDescription() + "dat")){
+                    return "2";
                 }
             }
         }

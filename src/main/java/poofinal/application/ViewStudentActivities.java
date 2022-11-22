@@ -6,7 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.util.Callback;
 import poofinal.entities.Activities;
 import poofinal.entities.Student;
 import java.io.FileNotFoundException;
@@ -46,12 +48,7 @@ public class ViewStudentActivities implements Initializable {
     public void loadListView(Student student) throws IOException, ClassNotFoundException {
         ObservableList<Activities> activitiesObservableList;
         activitiesObservableList = FXCollections.observableArrayList(student.getListActivities());
-        if(!activitiesObservableList.isEmpty()) {
-            fieldListViewActivities.setItems(activitiesObservableList);
-        }
-        else{
-            System.out.println("Este aluno não possuí atividades!");
-        }
+        fieldListViewActivities.setCellFactory(new ActivitiesCellFactor());
+        fieldListViewActivities.setItems(activitiesObservableList);
     }
-
 }

@@ -24,6 +24,7 @@ public enum Activities implements Serializable {
 
     private String description;
     private String hours;
+
     Activities(String description, String hours){
         this.description = description;
         this.hours = hours;
@@ -39,6 +40,6 @@ public enum Activities implements Serializable {
 
     @Override
     public String toString() {
-        return getDescription() + "     " + getHours();
+        return getDescription() + "\n" + getHours();
     }
 }

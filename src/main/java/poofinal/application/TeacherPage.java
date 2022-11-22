@@ -18,7 +18,7 @@ public class TeacherPage implements Initializable {
     private ListView<Student> listViewStudents;
 
     @FXML
-    void eventButtonViewActivities(ActionEvent event) throws IOException {
+    void eventButtonViewActivities(ActionEvent event) throws IOException, ClassNotFoundException {
         if(!listViewStudents.getSelectionModel().isEmpty()){
             Student student = listViewStudents.getSelectionModel().getSelectedItem();
             Management.setKeyMatriculation(student.getMatriculation());
@@ -48,6 +48,7 @@ public class TeacherPage implements Initializable {
         ObservableList<Student> studentObservableList;
         Management.loadFiles();
         studentObservableList = FXCollections.observableArrayList(Management.getStudentBuffer().values());
+        listViewStudents.setCellFactory(new StudentCellFactor());
         listViewStudents.setItems(studentObservableList);
     }
 }
