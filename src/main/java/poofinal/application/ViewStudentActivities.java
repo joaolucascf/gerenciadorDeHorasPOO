@@ -50,5 +50,7 @@ public class ViewStudentActivities implements Initializable {
         activitiesObservableList = FXCollections.observableArrayList(student.getListActivities());
         fieldListViewActivities.setCellFactory(new ActivitiesCellFactor());
         fieldListViewActivities.setItems(activitiesObservableList);
+        //System.out.println(activitiesObservableList.stream().sorted().toList());
+
     }
 }

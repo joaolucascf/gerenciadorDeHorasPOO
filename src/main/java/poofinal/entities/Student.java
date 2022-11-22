@@ -4,10 +4,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,8 +57,8 @@ public class Student extends Pessoa implements Serializable {
         if(!Files.exists(path)) {
             Files.createDirectories(path);
         }
-            //File file = new File(path + "\\" + activitie.getDescription() + checkExistsActivie(activitie) + ".dat");
-            File file = new File(path + "\\" + activitie.getDescription() + ".dat");
+            File file = new File(path + "\\" + activitie.getDescription() + checkExistsActivie(activitie) + ".dat");
+            //File file = new File(path + "\\" + activitie.getDescription() + ".dat");
             ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
             outStream.writeObject(activitie);
             outStream.close();
@@ -84,19 +81,21 @@ public class Student extends Pessoa implements Serializable {
         return listActivities;
     }
 
-    /*public String checkExistsActivie(Activities activitie){
+    public String checkExistsActivie(Activities activitie){
         File path = new File("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
+            int j = 1;
+            String[] split = new String[2];
             for (int i = 0; i < listFiles.length; i++) {
-                if(listFiles[i].getName().equals(activitie.getDescription() + "2.dat")){
-                    return "3";
-                }
-                if(listFiles[i].getName().equals(activitie.getDescription() + "dat")){
-                    return "2";
+                if(listFiles[i].getName().contains(activitie.getDescription())) {
+                    split = listFiles[i].getName().split("\\.");
+                    j = Integer.parseInt(String.valueOf(split[0].charAt(split[0].length() - 1)));
+                    j++;
                 }
             }
+            return String.valueOf(j);
         }
         return "";
-    } */
+    }
 }

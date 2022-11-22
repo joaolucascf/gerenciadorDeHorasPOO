@@ -79,7 +79,7 @@ public class ControllerAddActivities implements Initializable {
 
     private void initializeChoiceBoxes(){
         choiceBoxActivities.setValue(" ");
-        for(Activities activities : Activities.values()){
+        for(Activities activities : Activities.values()) {
             choiceBoxActivities.getItems().add(activities.getDescription());
         }
     }

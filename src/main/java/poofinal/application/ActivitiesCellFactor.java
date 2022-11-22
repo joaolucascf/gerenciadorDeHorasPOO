@@ -23,17 +23,7 @@ public class ActivitiesCellFactor implements Callback<ListView<Activities>, List
                     textField.setVisible(true);
                     checkBox.setText("OK ");
                     HBox linha = new HBox();
-                    checkBox.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            if(checkBox.isSelected()){
-                                textField.setVisible(false);
-                            }
-                            else{
-                                textField.setVisible(true);
-                            }
-                        }
-                    });
+                    checkBox.setOnAction((event)->textField.setVisible(!checkBox.isSelected()));
                     Label label = new Label("\t" + activities.getDescription() + "\n\t" + activities.getHours());
                     linha.getChildren().addAll(checkBox, textField, label);
                     setText(null);
