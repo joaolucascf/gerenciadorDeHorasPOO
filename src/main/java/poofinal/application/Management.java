@@ -46,6 +46,7 @@ public class Management {
     }
 
     public static boolean checkLoginStudent(String matriculation, String password) throws IOException, ClassNotFoundException {
+        loadFiles();
         for (String keyMatriculation : registrationBuffer.keySet()) {
             if (keyMatriculation.equals(matriculation)) {
                 File file = registrationBuffer.get(keyMatriculation);

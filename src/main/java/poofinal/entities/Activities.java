@@ -25,6 +25,8 @@ public enum Activities implements Serializable {
     private String description;
     private String hours;
 
+    private boolean flag = false;
+
     Activities(String description, String hours){
         this.description = description;
         this.hours = hours;
@@ -41,5 +43,12 @@ public enum Activities implements Serializable {
     @Override
     public String toString() {
         return getDescription() + "\n" + getHours();
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+    public boolean getFlag(){
+        return this.flag;
     }
 }

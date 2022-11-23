@@ -10,10 +10,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.application.Menu">
+<AnchorPane prefHeight="461.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlMainMenu">
    <children>
-      <Line endX="-38.4000244140625" endY="296.0" layoutX="438.0" layoutY="152.0" startX="-38.4000244140625" startY="-116.0" />
-      <Pane layoutX="100.0" layoutY="115.0" prefHeight="298.0" prefWidth="200.0">
+      <Line endX="-38.4000244140625" endY="296.0" layoutX="346.0" layoutY="140.0" startX="-38.4000244140625" startY="-116.0" />
+      <Pane layoutX="60.0" layoutY="81.0" prefHeight="298.0" prefWidth="200.0">
          <children>
             <Button fx:id="buttonLoginStudent" layoutX="56.0" layoutY="210.0" mnemonicParsing="false" onAction="#eventLoginStudent" prefHeight="26.0" prefWidth="89.0" text="Login" />
             <TextField fx:id="fieldMatriculation" layoutX="26.0" layoutY="78.0" />
@@ -35,28 +35,17 @@
                   <Font size="14.0" />
                </font>
             </Text>
+            <Label fx:id="invalidMatriculation" layoutX="77.0" layoutY="104.0" prefHeight="17.0" prefWidth="96.0" text="Matricula inválida" textFill="RED" visible="false" />
+            <Label fx:id="invalidPassword" layoutX="94.0" layoutY="176.0" prefHeight="17.0" prefWidth="79.0" text="Senha inválida" textFill="RED" visible="false" />
+            <Label fx:id="wrongPassword" layoutX="86.0" layoutY="175.0" prefHeight="17.0" prefWidth="89.0" text="Senha incorreta" textFill="RED" visible="false" />
          </children>
       </Pane>
-      <Pane layoutX="507.0" layoutY="115.0" prefHeight="298.0" prefWidth="200.0">
+      <Pane layoutX="357.0" layoutY="82.0" prefHeight="105.0" prefWidth="200.0">
          <children>
-            <Button fx:id="buttonLoginTeacher" layoutX="56.0" layoutY="210.0" mnemonicParsing="false" onAction="#eventLoginTeacher" prefHeight="26.0" prefWidth="89.0" text="Login" />
-            <TextField fx:id="fieldSIAPE" layoutX="26.0" layoutY="78.0" />
-            <Label layoutX="26.0" layoutY="61.0" text="Siape" />
-            <Label layoutX="26.0" layoutY="132.0" text="Senha" />
-            <Text layoutX="21.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login como Servidor" textAlignment="CENTER" wrappingWidth="159.30777587890623">
+            <Button fx:id="buttonLoginTeacher" layoutX="56.0" layoutY="65.0" mnemonicParsing="false" onAction="#eventLoginTeacher" prefHeight="26.0" prefWidth="89.0" text="Login" />
+            <Text layoutX="21.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login como servidor" textAlignment="CENTER" wrappingWidth="159.30777587890623">
                <font>
                   <Font size="16.0" />
-               </font>
-            </Text>
-            <PasswordField fx:id="fieldPasswordTeacher" layoutX="26.0" layoutY="149.0" />
-            <Text layoutX="21.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainda não é cadastrado?" wrappingWidth="159.30777587890623">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
-            <Text fx:id="textSignUpTeacher" layoutX="59.0" layoutY="282.0" onMouseClicked="#eventSignUpTeacher" onMouseEntered="#eventMouseEnteredTeacher" onMouseExited="#eventMouseExitedTeacher" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" wrappingWidth="78.8916015625">
-               <font>
-                  <Font size="14.0" />
                </font>
             </Text>
          </children>

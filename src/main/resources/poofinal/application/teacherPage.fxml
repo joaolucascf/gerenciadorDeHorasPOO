@@ -6,14 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.application.TeacherPage">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlTeacherPage">
    <children>
-      <ListView fx:id="listViewStudents" layoutX="43.0" layoutY="163.0" prefHeight="250.0" prefWidth="350.0" />
-      <Button layoutX="165.0" layoutY="427.0" mnemonicParsing="false" onAction="#eventButtonViewActivities" prefHeight="39.0" prefWidth="107.0" text="Ver Atividades">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <ListView fx:id="listViewStudents" layoutX="43.0" layoutY="163.0" onMouseClicked="#eventMouseClicked" prefHeight="250.0" prefWidth="350.0" />
       <Text layoutX="308.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEACHER PAGE">
          <font>
             <Font size="27.0" />

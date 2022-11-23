@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="489.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.application.SignUpStudent">
+<AnchorPane prefHeight="489.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlSignUp">
    <children>
       <Text layoutX="113.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Aluno">
          <font>
