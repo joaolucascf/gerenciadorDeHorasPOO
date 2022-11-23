@@ -1,5 +1,6 @@
 package poofinal.controllers;
 
+import com.itextpdf.text.Document;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +20,6 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ResourceBundle;
-import com.itextpdf.text.Document;
 
 public class CtrlStudentActivitiesView implements Initializable {
 
