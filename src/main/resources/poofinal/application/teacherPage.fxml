@@ -14,12 +14,17 @@
             <Font size="27.0" />
          </font>
       </Text>
-      <Button layoutX="729.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonExit" text="Sair">
+      <Button layoutX="729.0" layoutY="40.0" mnemonicParsing="false" onAction="#eventButtonExit" text="Sair">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="400.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonEditTable" text="Editar Tabela">
+      <Button layoutX="651.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonEditTable" text="Editar Tabela">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="400.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonViewReceipts" text="Visualizar comprovantes">
          <font>
             <Font size="19.0" />
          </font>

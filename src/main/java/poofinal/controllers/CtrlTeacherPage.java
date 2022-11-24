@@ -38,6 +38,15 @@ public class CtrlTeacherPage implements Initializable {
     }
 
     @FXML
+    void eventButtonViewReceipts(ActionEvent event) {
+        try {
+            Runtime.getRuntime().exec("explorer out\\reports");
+        } catch (IOException e) {
+            System.out.println("Caminho não existe!");
+        }
+    }
+
+    @FXML
     void eventButtonExit(ActionEvent event) throws IOException {
         Management.changeScene("mainMenu.fxml", event);
     }
