@@ -3,42 +3,41 @@ package poofinal.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import poofinal.application.Management;
 import poofinal.entities.Activities;
-import poofinal.entities.Student;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class CtrlAddActivities implements Initializable {
+public class CtrlEditorTable implements Initializable {
 
     @FXML
     private ChoiceBox<String> choiceBoxActivities;
     @FXML
-    private TextField fieldHours;
+    private TextField fieldChangeHours;
     private HashMap<String, Activities> activitiesBuffer = Management.getActivitiesBuffer();
 
     @FXML
     void eventButtonCancel(ActionEvent event) throws IOException {
-        Management.changeScene("studentPage.fxml", event);
+        Management.changeScene("teacherPage.fxml", event);
     }
 
     @FXML
-    void eventButtonOK(ActionEvent event) throws IOException {
-        if(validateEntries()) {
-            readerInformation();
-            Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
-            Management.createActivitiesFile(student);
-            Management.createSavingFile(student);
-            Management.changeScene("studentPage.fxml", event);
+    void eventButtonChange(ActionEvent event) throws IOException {
+        if(validateEntries()){
+            for(String keyId : activitiesBuffer.keySet()){
+                if(choiceBoxActivities.getValue().equals(activitiesBuffer.get(keyId).getDescription())){
+                    activitiesBuffer.get(keyId).setHours(fieldChangeHours.getText());
+                }
+            }
         }
+        Management.changeTableActivities();
+        Management.changeScene("teacherPage.fxml", event);
     }
 
     @FXML
@@ -46,7 +45,7 @@ public class CtrlAddActivities implements Initializable {
         choiceBoxActivities.setOnAction((event)->{
             for(String keyId : activitiesBuffer.keySet()){
                 if(choiceBoxActivities.getValue().equals(activitiesBuffer.get(keyId).getDescription())){
-                    fieldHours.setText(Management.getActivitiesBuffer().get(keyId).getHours());
+                    fieldChangeHours.setText(Management.getActivitiesBuffer().get(keyId).getHours());
                 }
             }
         });
@@ -54,22 +53,12 @@ public class CtrlAddActivities implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeChoiceBoxes();
+        initializeChoiceBox();
     }
 
-    private void initializeChoiceBoxes(){
-        choiceBoxActivities.setValue(" ");
-        for(String keyId :  activitiesBuffer.keySet()){
+    public void initializeChoiceBox(){
+        for(String keyId : activitiesBuffer.keySet()){
             choiceBoxActivities.getItems().add(activitiesBuffer.get(keyId).getDescription());
-        }
-    }
-
-    public void readerInformation() throws IOException {
-        Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
-        for(String keyId : activitiesBuffer.keySet()) {
-            if(choiceBoxActivities.getValue().equals(activitiesBuffer.get(keyId).getDescription())){
-                student.setActivities(activitiesBuffer.get(keyId));
-            }
         }
     }
 
@@ -85,4 +74,6 @@ public class CtrlAddActivities implements Initializable {
     private void refreshValidationFields(){
         choiceBoxActivities.setStyle(null);
     }
+
+
 }

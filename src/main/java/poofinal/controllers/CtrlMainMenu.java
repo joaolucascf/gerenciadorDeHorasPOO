@@ -24,13 +24,10 @@ public class CtrlMainMenu implements Initializable{
     public Label wrongPassword;
     @FXML
     private Button buttonLoginStudent;
-
     @FXML
     private Button buttonLoginTeacher;
-
     @FXML
     private TextField fieldMatriculation;
-
     @FXML
     private PasswordField fieldPasswordStudent;
     @FXML

@@ -53,23 +53,23 @@ public class Student extends Pessoa implements Serializable {
 
     public void setActivities(Activities activitie) throws IOException {
         listActivities.add(activitie);
-        Path path = Path.of("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
+        var path = Path.of("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
         if(!Files.exists(path)) {
             Files.createDirectories(path);
         }
-            File file = new File(path + "\\" + activitie.getDescription() + checkExistsActivie(activitie) + ".dat");
+            var file = new File(path + "\\" + activitie.getDescription() + checkExistsActivie(activitie) + ".dat");
             //File file = new File(path + "\\" + activitie.getDescription() + ".dat");
-            ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
+            var outStream = new ObjectOutputStream(new FileOutputStream(file));
             outStream.writeObject(activitie);
             outStream.close();
     }
 
     public void loadFilesActivities() throws IOException, ClassNotFoundException {
-        File path = new File("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
+        var path = new File("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
             for (int i = 0; i < listFiles.length; i++) {
-                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\" + listFiles[i].getName()));
+                var inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\" + listFiles[i].getName()));
                 Activities activities = (Activities) inStream.readObject();
                 inStream.close();
                 listActivities.add(activities);
@@ -82,7 +82,7 @@ public class Student extends Pessoa implements Serializable {
     }
 
     public String checkExistsActivie(Activities activitie){
-        File path = new File("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
+        var path = new File("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
             int j = 1;

@@ -20,15 +20,6 @@ public class CtrlTeacherPage implements Initializable {
     @FXML
     private ListView<Student> listViewStudents;
 
-   /* @FXML
-    void eventButtonViewActivities(ActionEvent event) throws IOException, ClassNotFoundException {
-        if(!listViewStudents.getSelectionModel().isEmpty()){
-            Student student = listViewStudents.getSelectionModel().getSelectedItem();
-            Management.setKeyMatriculation(student.getMatriculation());
-            Management.changeScene("viewStudentActivities.fxml", event);
-        }
-    } */
-
     @FXML
     void eventMouseClicked(MouseEvent event) throws IOException {
         if(event.getClickCount() == 2){
@@ -42,7 +33,8 @@ public class CtrlTeacherPage implements Initializable {
 
     @FXML
     void eventButtonEditTable(ActionEvent event) throws IOException {
-        Management.changeScene("mainMenu.fxml", event);
+        Management.loadTableActivities();
+        Management.changeScene("tableEditor.fxml", event);
     }
 
     @FXML

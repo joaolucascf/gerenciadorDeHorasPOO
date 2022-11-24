@@ -106,6 +106,7 @@ public class CtrlStudentActivitiesView implements Initializable {
         img.scaleToFit(150,150);
         System.out.println(String.valueOf(img.getAbsoluteX()));
         pdfReport.add(img);
+        Paragraph linha = new Paragraph();
         pdfReport.add(new Paragraph(String.format("Aluno: %s", student.getName())));
         pdfReport.add(new Paragraph(String.format("Matrícula: %s", student.getMatriculation())));
         pdfReport.add(new Paragraph("ATIVIDADES"));

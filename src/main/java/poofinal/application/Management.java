@@ -39,13 +39,12 @@ public class Management {
     }
 
     public static void addStudent(Student student) throws IOException {
-        //File file = new File("src\\main\\resources\\files\\studentRegistration\\" + student.getName().concat(".dat"));
-        Path path = Path.of("src\\main\\resources\\files\\studentRegistration\\");
+        var path = Path.of("src\\main\\resources\\files\\studentRegistration\\");
         if(!Files.exists(path)) {
             Files.createDirectories(path);
         }
-        File file = new File(path + "\\" + student.getName().concat(".dat"));
-        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
+        var file = new File(path + "\\" + student.getName().concat(".dat"));
+        var outStream = new ObjectOutputStream(new FileOutputStream(file));
         outStream.writeObject(student);
         outStream.close();
         registrationBuffer.put(student.getMatriculation(), file);
@@ -55,8 +54,8 @@ public class Management {
         loadFiles();
         for (String keyMatriculation : registrationBuffer.keySet()) {
             if (keyMatriculation.equals(matriculation)) {
-                File file = registrationBuffer.get(keyMatriculation);
-                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(file));
+                var file = registrationBuffer.get(keyMatriculation);
+                var inStream = new ObjectInputStream(new FileInputStream(file));
                 Student student = (Student) inStream.readObject();
                 inStream.close();
                 if (student.getPassword().equals(password)) {
@@ -76,11 +75,11 @@ public class Management {
     }
 
     public static void loadFiles() throws ClassNotFoundException, IOException {
-        File path = new File("src\\main\\resources\\files\\studentRegistration\\");
+        var path = new File("src\\main\\resources\\files\\studentRegistration\\");
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();
             for(int i = 0; i < listFiles.length; i++){
-                ObjectInputStream inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\studentRegistration\\" + listFiles[i].getName()));
+                var inStream = new ObjectInputStream(new FileInputStream("src\\main\\resources\\files\\studentRegistration\\" + listFiles[i].getName()));
                 Student student = (Student) inStream.readObject();
                 inStream.close();
                 studentBuffer.put(student.getMatriculation(), student);
@@ -90,12 +89,12 @@ public class Management {
     }
 
     public static void createSavingFile(Student student) throws IOException {
-        Path path = Path.of("src\\main\\resources\\files\\studentSavingFiles\\");
+        var path = Path.of("src\\main\\resources\\files\\studentSavingFiles\\");
         if(!Files.exists(path)) {
             Files.createDirectories(path);
         }
-        File file = new File(path + "\\" + student.getName() + "_" + student.getMatriculation() + ".dat");
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+        var file = new File(path + "\\" + student.getName() + "_" + student.getMatriculation() + ".dat");
+        var bufferedWriter = new BufferedWriter(new FileWriter(file));
         bufferedWriter.write(student.getName());
         bufferedWriter.newLine();
         bufferedWriter.write(student.getMatriculation());
@@ -110,12 +109,12 @@ public class Management {
     }
 
     public static void createActivitiesFile(Student student) throws IOException {
-        Path path = Path.of("src\\main\\resources\\files\\studentAllActivities\\");
+        var path = Path.of("src\\main\\resources\\files\\studentAllActivities\\");
         if(!Files.exists(path)) {
             Files.createDirectories(path);
         }
-        File file = new File(path + "\\" + student.getName() + "_" + student.getMatriculation() + ".csv");
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+        var file = new File(path + "\\" + student.getName() + "_" + student.getMatriculation() + ".csv");
+        var bufferedWriter = new BufferedWriter(new FileWriter(file));
         for(Activities activities : student.getListActivities()) {
             bufferedWriter.write(activities.getDescription());
             bufferedWriter.newLine();
@@ -124,17 +123,29 @@ public class Management {
     }
 
     public static void loadTableActivities() throws IOException {
-        Path path = Path.of("src\\main\\resources\\files\\tableActivities");
+        var path = Path.of("src\\main\\resources\\files\\tableActivities");
         if(!Files.exists(path)){
             Files.createDirectories(path);
         }
-        DataInputStream inStream = new DataInputStream(new FileInputStream(path + ".dat"));
+        var inStream = new DataInputStream(new FileInputStream(path + "\\tableActivities.dat"));
         for(int i = 0; i < 16; i++){
             String id = inStream.readUTF();
             String description = inStream.readUTF();
             String hours = inStream.readUTF();
-            System.out.println(id + "  " + description + "  " + hours);
             activitiesBuffer.put(id, new Activities(id, description, hours));
+        }
+    }
+
+    public static void changeTableActivities() throws IOException {
+        var path = Path.of("src\\main\\resources\\files\\tableActivities");
+        if(!Files.exists(path)){
+            Files.createDirectories(path);
+        }
+        var outStream = new DataOutputStream(new FileOutputStream(path + "\\tableActivities.dat"));
+        for(String keyId : activitiesBuffer.keySet()){
+            outStream.writeUTF(activitiesBuffer.get(keyId).getId());
+            outStream.writeUTF(activitiesBuffer.get(keyId).getDescription());
+            outStream.writeUTF(activitiesBuffer.get(keyId).getHours());
         }
     }
 }

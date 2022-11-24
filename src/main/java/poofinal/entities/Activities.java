@@ -41,6 +41,14 @@ public class Activities implements Serializable {
         return hours;
     }
 
+    public void setHours(String hours) {
+        this.hours = hours;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return getDescription() + "\n" + getHours();
