@@ -3,6 +3,7 @@ package poofinal.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import poofinal.application.Management;
 
 import java.io.IOException;
@@ -16,5 +17,4 @@ public class CtrlSucessfulRegister {
     void eventButtonOK(ActionEvent event) throws IOException {
         Management.changeScene("mainMenu.fxml", event);
     }
-
 }
