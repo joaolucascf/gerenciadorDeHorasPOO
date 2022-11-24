@@ -2,14 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlEditorTable">
    <children>
+      <TextField fx:id="fieldChangeHours" alignment="CENTER" layoutX="233.0" layoutY="249.0" prefHeight="25.0" prefWidth="157.0" promptText="Horas" />
       <Text layoutX="213.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editor de Tabela">
          <font>
             <Font size="27.0" />
@@ -36,6 +37,6 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="fieldChangeHours" alignment="CENTER" layoutX="233.0" layoutY="249.0" prefHeight="25.0" prefWidth="157.0" promptText="Horas" />
+      <Label fx:id="emptyChangeHours" layoutX="243.0" layoutY="274.0" text="Por favor informe uma hora" textFill="RED" visible="false" />
    </children>
 </AnchorPane>

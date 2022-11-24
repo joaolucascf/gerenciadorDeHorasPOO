@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import poofinal.application.Management;
@@ -20,6 +21,8 @@ public class CtrlEditorTable implements Initializable {
     private ChoiceBox<String> choiceBoxActivities;
     @FXML
     private TextField fieldChangeHours;
+    @FXML
+    private Label emptyChangeHours;
     private HashMap<String, Activities> activitiesBuffer = Management.getActivitiesBuffer();
 
     @FXML
@@ -35,9 +38,9 @@ public class CtrlEditorTable implements Initializable {
                     activitiesBuffer.get(keyId).setHours(fieldChangeHours.getText());
                 }
             }
+            Management.changeTableActivities();
+            Management.changeScene("teacherPage.fxml", event);
         }
-        Management.changeTableActivities();
-        Management.changeScene("teacherPage.fxml", event);
     }
 
     @FXML
@@ -57,6 +60,7 @@ public class CtrlEditorTable implements Initializable {
     }
 
     public void initializeChoiceBox(){
+        choiceBoxActivities.setValue(" ");
         for(String keyId : activitiesBuffer.keySet()){
             choiceBoxActivities.getItems().add(activitiesBuffer.get(keyId).getDescription());
         }
@@ -68,11 +72,17 @@ public class CtrlEditorTable implements Initializable {
             choiceBoxActivities.setStyle("-fx-border-color:red");
             return false;
         }
+        if(fieldChangeHours.getText().isEmpty()){
+            fieldChangeHours.setStyle("-fx-border-color:red");
+            emptyChangeHours.setVisible(true);
+            return false;
+        }
         return true;
     }
 
     private void refreshValidationFields(){
         choiceBoxActivities.setStyle(null);
+        fieldChangeHours.setStyle(null);
     }
 
 
