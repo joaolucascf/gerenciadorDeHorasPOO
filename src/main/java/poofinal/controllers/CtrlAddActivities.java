@@ -53,44 +53,43 @@ public class CtrlAddActivities implements Initializable {
 
     @FXML
     void eventChoiceBoxEntered(MouseEvent event){
-        for(Activities activities : Activities.values()){
-            if(choiceBoxActivities.getValue().equals(activities.getDescription())) {
-                fieldHours.setText(activities.getHours());
+        for(String keyId : Management.getActivitiesBuffer().keySet()){
+            if(choiceBoxActivities.getValue().equals(Management.getActivitiesBuffer().get(keyId).getDescription())){
+                fieldHours.setText(Management.getActivitiesBuffer().get(keyId).getHours());
             }
         }
     }
     @FXML
     void eventMovedMouse(MouseEvent event) {
-        for(Activities activities : Activities.values()){
-            if(choiceBoxActivities.getValue().equals(activities.getDescription())) {
-                fieldHours.setText(activities.getHours());
+        for(String keyId : Management.getActivitiesBuffer().keySet()){
+            if(choiceBoxActivities.getValue().equals(Management.getActivitiesBuffer().get(keyId).getDescription())){
+                fieldHours.setText(Management.getActivitiesBuffer().get(keyId).getHours());
             }
         }
     }
     @FXML
     void eventChoiceBoxKeyReleased(KeyEvent event) {
-        for(Activities activities : Activities.values()){
-            if(choiceBoxActivities.getValue().equals(activities.getDescription())) {
-                fieldHours.setText(activities.getHours());
+        for(String keyId : Management.getActivitiesBuffer().keySet()){
+            if(choiceBoxActivities.getValue().equals(Management.getActivitiesBuffer().get(keyId).getDescription())){
+                fieldHours.setText(Management.getActivitiesBuffer().get(keyId).getHours());
             }
         }
     }
 
     private void initializeChoiceBoxes(){
         choiceBoxActivities.setValue(" ");
-        for(Activities activities : Activities.values()) {
-            choiceBoxActivities.getItems().add(activities.getDescription());
+        for(String keyId : Management.getActivitiesBuffer().keySet()){
+            choiceBoxActivities.getItems().add(Management.getActivitiesBuffer().get(keyId).getDescription());
         }
     }
 
     public void readerInformation() throws IOException {
         Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
-        for(Activities activities : Activities.values()){
-            if(choiceBoxActivities.getValue().equals(activities.getDescription())) {
-                student.setActivities(activities);
+        for(String keyId : Management.getActivitiesBuffer().keySet()) {
+            if(choiceBoxActivities.getValue().equals(Management.getActivitiesBuffer().get(keyId).getDescription())){
+                student.setActivities(Management.getActivitiesBuffer().get(keyId));
             }
         }
-
     }
 
     private boolean validateEntries(){

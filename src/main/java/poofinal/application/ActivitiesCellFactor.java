@@ -26,7 +26,6 @@ public class ActivitiesCellFactor implements Callback<ListView<Activities>, List
                     checkBox.setOnAction((event)->{
                         textField.setVisible(!checkBox.isSelected());
                         activities.setFlag(checkBox.isSelected());
-                        //System.out.println(activities.getFlag());
                     });
                     Label label = new Label("\t" + activities.getDescription() + "\n\t" + activities.getHours());
                     linha.getChildren().addAll(checkBox, textField, label);

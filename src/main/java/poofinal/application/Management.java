@@ -13,15 +13,21 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Management {
     private static HashMap<String, Student> studentBuffer = new HashMap<String, Student>();
     private static HashMap<String, File> registrationBuffer = new HashMap<String, File>();
+    private static HashMap<String, Activities> activitiesBuffer = new HashMap();
     private static Scene scene;
     private static String keyMatriculation;
 
     public static void setKeyMatriculation(String keyMatriculation) {
         Management.keyMatriculation = keyMatriculation;
+    }
+
+    public static HashMap<String, Activities> getActivitiesBuffer() {
+        return activitiesBuffer;
     }
 
     public static String getKeyMatriculation() {
@@ -115,5 +121,20 @@ public class Management {
             bufferedWriter.newLine();
         }
         bufferedWriter.close();
+    }
+
+    public static void loadTableActivities() throws IOException {
+        Path path = Path.of("src\\main\\resources\\files\\tableActivities");
+        if(!Files.exists(path)){
+            Files.createDirectories(path);
+        }
+        DataInputStream inStream = new DataInputStream(new FileInputStream(path + ".dat"));
+        for(int i = 0; i < 16; i++){
+            String id = inStream.readUTF();
+            String description = inStream.readUTF();
+            String hours = inStream.readUTF();
+            System.out.println(id + "  " + description + "  " + hours);
+            activitiesBuffer.put(id, new Activities(id, description, hours));
+        }
     }
 }

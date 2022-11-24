@@ -2,8 +2,8 @@ package poofinal.entities;
 
 import java.io.Serializable;
 
-public enum Activities implements Serializable {
-    MONITOR("Monitor", "51 Horas"),
+public class Activities implements Serializable {
+    /*MONITOR("Monitor", "51 Horas"),
     BOLSISTA_PESQUISA("Voluntário em Projetos de Pesquisa", "51 Horas"),
     BOLSISTA_EXTENSAO("Voluntário em Projetos de Extensão", "51 Horas"),
     BOLSISTA_ENSINO("Voluntário em Projetos de Ensino", "51 Horas"),
@@ -20,14 +20,15 @@ public enum Activities implements Serializable {
     PUBLICACAO_ARTIGO_INTERNACIONAL("Publicação de Artigo Internacional", "68 Horas"),
     REPRESENTACAO_ESTUDANTIL("Representação Estudantil", "51 Horas"),
     PREMIOS_DISTINCOES("Obtenção de Prêmios e Distinções", "68 Horas"),
-    CERTIFICADOS_PROFISSIONAIS("Certificações profissionais", "51 Horas");
+    CERTIFICADOS_PROFISSIONAIS("Certificações profissionais", "51 Horas"); */
 
+    private String id;
     private String description;
     private String hours;
-
     private boolean flag = false;
 
-    Activities(String description, String hours){
+    public Activities(String id, String description, String hours) {
+        this.id = id;
         this.description = description;
         this.hours = hours;
     }

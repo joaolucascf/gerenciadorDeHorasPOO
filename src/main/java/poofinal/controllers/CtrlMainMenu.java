@@ -46,6 +46,7 @@ public class CtrlMainMenu implements Initializable{
         if(validateLoginEntries()) {
             if (Management.checkLoginStudent(fieldMatriculation.getText(), fieldPasswordStudent.getText())) {
                 Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
+                Management.loadTableActivities();
                 student.loadFilesActivities();
                 Management.changeScene("studentPage.fxml", event);
             } else {

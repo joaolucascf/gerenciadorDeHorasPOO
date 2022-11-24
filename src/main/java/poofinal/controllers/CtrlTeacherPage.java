@@ -41,6 +41,11 @@ public class CtrlTeacherPage implements Initializable {
     }
 
     @FXML
+    void eventButtonEditTable(ActionEvent event) throws IOException {
+        Management.changeScene("mainMenu.fxml", event);
+    }
+
+    @FXML
     void eventButtonExit(ActionEvent event) throws IOException {
         Management.changeScene("mainMenu.fxml", event);
     }
