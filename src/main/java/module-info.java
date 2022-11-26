@@ -3,6 +3,14 @@ module poofinal.hoursmanager {
     requires javafx.fxml;
     requires itextpdf;
     requires google.api.client;
+    requires com.google.gson;
+    requires com.google.api.client;
+    requires com.google.api.client.extensions.jetty.auth;
+    requires com.google.api.client.extensions.java6.auth;
+    requires com.google.api.client.auth;
+    requires com.google.api.services.drive;
+    requires com.google.api.client.json.gson;
+    requires jdk.httpserver;
 
     opens poofinal.application to javafx.fxml;
     exports poofinal.application;

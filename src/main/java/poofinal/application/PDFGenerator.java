@@ -12,13 +12,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.GeneralSecurityException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class PDFGenerator {
 
-    public static void pdfSaver(Path pdfPath, String pdfName) throws DocumentException, IOException {
+    public static void pdfSaver(Path pdfPath, String pdfName) throws DocumentException, IOException, GeneralSecurityException {
 
         File pdfOut = new File(pdfPath + "/" + pdfName + "_" + LocalDate.now().format(DateTimeFormatter.ofPattern("dd_MM_yyyy")) + ".pdf");
 
@@ -33,6 +34,7 @@ public class PDFGenerator {
         docPdf.open();
         docPdf = createReportPDF(docPdf);
         docPdf.close();
+        DriveUpdate.sendReport(pdfOut.getPath());
     }
 
     private static Document createReportPDF(Document pdfReport) throws DocumentException, IOException {

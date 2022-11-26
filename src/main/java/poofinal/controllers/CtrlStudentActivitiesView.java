@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import poofinal.application.ActivitiesCellFactor;
+import poofinal.application.DriveUpdate;
 import poofinal.application.Management;
 import poofinal.application.PDFGenerator;
 import poofinal.entities.Activities;
@@ -20,6 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
+import java.security.GeneralSecurityException;
 import java.util.ResourceBundle;
 
 public class CtrlStudentActivitiesView implements Initializable {
@@ -54,7 +56,7 @@ public class CtrlStudentActivitiesView implements Initializable {
     }
 
     @FXML
-    public void eventButtonDone(ActionEvent actionEvent) throws IOException, DocumentException {
+    public void eventButtonDone(ActionEvent actionEvent) throws IOException, DocumentException, GeneralSecurityException {
         Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
         if(!student.getListActivities().isEmpty()) {
             var pdfPath = Path.of("out/reports/" + student.getName());
