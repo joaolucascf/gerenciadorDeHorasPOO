@@ -17,4 +17,14 @@ public class CtrlSucessfulRegister {
     void eventButtonOK(ActionEvent event) throws IOException {
         Management.changeScene("mainMenu.fxml", event);
     }
+
+    @FXML
+    void mouseEnteredButtonOK(MouseEvent event) {
+        buttonOK.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonOK(MouseEvent event) {
+        buttonOK.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+    }
 }

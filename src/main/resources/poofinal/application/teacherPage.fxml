@@ -6,25 +6,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlTeacherPage">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="545.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlTeacherPage">
    <children>
-      <ListView fx:id="listViewStudents" layoutX="43.0" layoutY="163.0" onMouseClicked="#eventMouseClicked" prefHeight="250.0" prefWidth="350.0" />
-      <Button layoutX="729.0" layoutY="40.0" mnemonicParsing="false" onAction="#eventButtonExit" text="Sair">
+      <ListView fx:id="listViewStudents" layoutX="28.0" layoutY="67.0" onMouseClicked="#eventMouseClicked" prefHeight="296.0" prefWidth="485.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Button fx:id="buttonExit" layoutX="458.0" layoutY="21.0" mnemonicParsing="false" onAction="#eventButtonExit" onMouseEntered="#mouseEnteredButtonExit" onMouseExited="#mouseExitedButtonExit" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Sair" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="651.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonEditTable" text="Editar Tabela">
+      <Button fx:id="buttonEdit" layoutX="379.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonEditTable" onMouseEntered="#mouseEnteredButtonEdit" onMouseExited="#mouseExitedButtonEdit" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Editar Tabela" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="400.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonViewReceipts" text="Visualizar comprovantes">
+      <Button fx:id="buttonView" layoutX="28.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonViewReceipts" onMouseEntered="#mouseEnteredButtonView" onMouseExited="#mouseExitedButtonView" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Visualizar comprovantes" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Label fx:id="emptyName" alignment="CENTER" layoutX="184.0" layoutY="80.0" prefHeight="39.0" prefWidth="418.0">
+      <Label fx:id="emptyName" alignment="CENTER" layoutX="28.0" layoutY="21.0" prefHeight="39.0" prefWidth="418.0" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>

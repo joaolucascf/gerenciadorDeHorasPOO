@@ -5,55 +5,94 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="489.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlSignUp">
+<AnchorPane prefHeight="489.0" prefWidth="329.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlSignUp">
    <children>
-      <Text layoutX="113.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Aluno">
+      <Text fill="WHITE" layoutX="97.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Aluno">
          <font>
-            <Font size="16.0" />
+            <Font size="19.0" />
          </font>
       </Text>
-      <Text layoutX="56.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Completo" />
-      <TextField fx:id="fieldName" layoutX="57.0" layoutY="67.0" prefHeight="25.0" prefWidth="210.0" />
-      <Text layoutX="55.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" />
-      <TextField fx:id="fieldEmail" layoutX="57.0" layoutY="120.0" prefHeight="25.0" prefWidth="210.0" />
-      <Text layoutX="54.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matrícula" />
-      <TextField fx:id="fieldMatriculation" layoutX="57.0" layoutY="174.0" prefHeight="25.0" prefWidth="210.0" />
-      <Text layoutX="57.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso" />
-      <ChoiceBox fx:id="choiceBoxCourse" layoutX="57.0" layoutY="227.0" prefHeight="25.0" prefWidth="210.0" />
-      <Button fx:id="buttonOK" layoutX="57.0" layoutY="409.0" mnemonicParsing="false" onAction="#eventButtonOK" prefHeight="25.0" prefWidth="88.0" text="OK" />
-      <Button fx:id="buttonCancel" layoutX="179.0" layoutY="409.0" mnemonicParsing="false" onAction="#EventButtonCancel" prefHeight="25.0" prefWidth="88.0" text="Cancelar" />
-      <Text layoutX="57.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semestre de Ingresso" />
-      <ChoiceBox fx:id="choiceBoxSemester" layoutX="179.0" layoutY="309.0" prefHeight="25.0" prefWidth="88.0" />
-      <Text layoutX="179.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semestre" />
-      <ChoiceBox fx:id="choiceBoxYear" layoutX="57.0" layoutY="309.0" prefHeight="25.0" prefWidth="88.0" />
-      <Text layoutX="57.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano" />
+      <TextField fx:id="fieldName" alignment="CENTER" layoutX="57.0" layoutY="52.0" prefHeight="25.0" prefWidth="210.0" promptText="Nome Completo" style="-fx-background-color: #2F4F4F;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="fieldEmail" alignment="CENTER" layoutX="57.0" layoutY="110.0" prefHeight="25.0" prefWidth="210.0" promptText="E-mail" style="-fx-background-color: #2F4F4F;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="fieldMatriculation" alignment="CENTER" layoutX="57.0" layoutY="163.0" prefHeight="25.0" prefWidth="210.0" promptText="Matrícula" style="-fx-background-color: #2F4F4F;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <ChoiceBox fx:id="choiceBoxCourse" layoutX="57.0" layoutY="227.0" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Button fx:id="buttonOK" layoutX="57.0" layoutY="416.0" mnemonicParsing="false" onAction="#eventButtonOK" onMouseEntered="#mouseEnteredButtonOK" onMouseExited="#mouseExitedButtonOK" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="OK" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="buttonCancel" layoutX="179.0" layoutY="416.0" mnemonicParsing="false" onAction="#EventButtonCancel" onMouseEntered="#mouseEnteredButtonCancel" onMouseExited="#mouseExitedButtonCancel" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Text fill="WHITE" layoutX="57.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semestre de Ingresso" />
+      <ChoiceBox fx:id="choiceBoxSemester" layoutX="179.0" layoutY="309.0" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <Text fill="WHITE" layoutX="179.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semestre" />
+      <ChoiceBox fx:id="choiceBoxYear" layoutX="57.0" layoutY="309.0" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <Text fill="WHITE" layoutX="57.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano" />
       <Text layoutX="295.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="56.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
-      <TextField fx:id="fieldPassword" layoutX="57.0" layoutY="358.0" prefHeight="25.0" prefWidth="210.0" />
-      <Label fx:id="emptyName" contentDisplay="RIGHT" layoutX="139.0" layoutY="95.0" prefHeight="15.0" prefWidth="128.0" text="Por favor, informe seu nome." textFill="RED" visible="false">
+      <TextField fx:id="fieldPassword" alignment="CENTER" layoutX="57.0" layoutY="358.0" prefHeight="25.0" prefWidth="210.0" promptText="Senha" style="-fx-background-color: #2F4F4F; -fx-background-radius: 10; -fx-border-radius: 10;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Label fx:id="emptyName" contentDisplay="RIGHT" layoutX="137.0" layoutY="86.0" prefHeight="15.0" prefWidth="128.0" text="Por favor, informe seu nome." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="invalidEmail" layoutX="187.0" layoutY="148.0" prefHeight="15.0" prefWidth="80.0" text="E-mail inválido." textFill="RED" visible="false">
+      <Label fx:id="invalidEmail" layoutX="183.0" layoutY="144.0" prefHeight="15.0" prefWidth="80.0" text="E-mail inválido." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="emptyEmail" layoutX="137.0" layoutY="148.0" prefHeight="15.0" prefWidth="130.0" text="Por favor, informe seu e-mail." textFill="RED" visible="false">
+      <Label fx:id="emptyEmail" layoutX="136.0" layoutY="144.0" prefHeight="15.0" prefWidth="130.0" text="Por favor, informe seu e-mail." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="invalidMatriculation" layoutX="134.0" layoutY="202.0" prefHeight="15.0" prefWidth="133.0" text="Número de matricula invalido." textFill="RED" visible="false">
+      <Label fx:id="invalidMatriculation" layoutX="129.0" layoutY="198.0" prefHeight="15.0" prefWidth="133.0" text="Número de matricula invalido." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="emptyMatriculation" layoutX="123.0" layoutY="202.0" prefHeight="15.0" prefWidth="143.0" text="Por favor, informe sua matrícula." textFill="RED" visible="false">
+      <Label fx:id="emptyMatriculation" layoutX="122.0" layoutY="198.0" prefHeight="15.0" prefWidth="143.0" text="Por favor, informe sua matrícula." textFill="RED" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="162.0" layoutY="83.0" startX="-100.0" stroke="WHITE" />
+      <Line endX="100.0" layoutX="162.0" layoutY="141.0" startX="-100.0" stroke="WHITE" />
+      <Line endX="100.0" layoutX="162.0" layoutY="194.0" startX="-100.0" stroke="WHITE" />
+      <Text fill="WHITE" layoutX="57.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso" />
+      <Line endX="100.0" layoutX="162.0" layoutY="389.0" startX="-100.0" stroke="WHITE" />
+      <Label fx:id="invalidPassword" layoutX="183.0" layoutY="393.0" prefHeight="15.0" prefWidth="80.0" text="Senha inválida." textFill="RED" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="emptyCourse" layoutX="135.0" layoutY="255.0" prefHeight="15.0" prefWidth="130.0" text="Por favor, informe seu curso." textFill="RED" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="emptyYear" layoutX="61.0" layoutY="337.0" prefHeight="15.0" prefWidth="74.0" text="Informe um ano." textFill="RED" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="emptySemester" layoutX="173.0" layoutY="337.0" prefHeight="15.0" prefWidth="100.0" text="Informe um semestre." textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>

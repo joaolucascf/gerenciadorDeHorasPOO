@@ -70,6 +70,26 @@ public class CtrlStudentPage implements Initializable{
         Management.changeScene("mainMenu.fxml", event);
     }
 
+    @FXML
+    void mouseEnteredButtonAddActivities(MouseEvent event) {
+        buttonActivities.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonAddActivities(MouseEvent event) {
+        buttonActivities.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+    }
+
+    @FXML
+    void mouseEnteredButtonExit(MouseEvent event) {
+        buttonExit.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonExit(MouseEvent event) {
+        buttonExit.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+    }
+
     public void loadListView() throws IOException, ClassNotFoundException {
         ObservableList<Activities> activitiesObservableList;
         Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());

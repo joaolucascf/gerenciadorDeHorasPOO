@@ -39,14 +39,10 @@ public class Activities implements Serializable {
         return id;
     }
 
-    @Override
-    public String toString() {
-        return getDescription() + "\n" + getHours();
-    }
-
     public void setFlag(boolean flag) {
         this.flag = flag;
     }
+
     public boolean getFlag(){
         return this.flag;
     }

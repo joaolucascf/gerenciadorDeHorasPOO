@@ -19,6 +19,11 @@ import java.util.ResourceBundle;
 
 public class CtrlAddActivities implements Initializable {
 
+
+    @FXML
+    private Button buttonCancel;
+    @FXML
+    private Button buttonOK;
     @FXML
     private ChoiceBox<String> choiceBoxActivities;
     @FXML
@@ -44,6 +49,26 @@ public class CtrlAddActivities implements Initializable {
             Management.createSavingFile(student);
             Management.changeScene("studentPage.fxml", event);
         }
+    }
+
+    @FXML
+    void mouseEnteredButtonCancel(MouseEvent event) {
+        buttonCancel.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonCancel(MouseEvent event) {
+        buttonCancel.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+    }
+
+    @FXML
+    void mouseEnteredButtonOK(MouseEvent event) {
+        buttonOK.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonOK(MouseEvent event) {
+        buttonOK.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
     }
 
     @FXML
@@ -76,7 +101,7 @@ public class CtrlAddActivities implements Initializable {
     private boolean validateEntries(){
         refreshValidationFields();
         if(choiceBoxActivities.getValue().equals(" ")) {
-            choiceBoxActivities.setStyle("-fx-border-color:red");
+            choiceBoxActivities.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red; -fx-background-color: white");
             return false;
         }
         return true;

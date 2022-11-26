@@ -24,12 +24,12 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="choiceBoxActivities" layoutX="34.0" layoutY="140.0" onMouseClicked="#eventMouseClicked" prefHeight="25.0" prefWidth="285.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
-      <Button fx:id="buttonCancel" layoutX="197.0" layoutY="263.0" mnemonicParsing="false" onAction="#eventButtonCancel" prefHeight="30.0" prefWidth="77.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
+      <ChoiceBox fx:id="choiceBoxActivities" layoutX="34.0" layoutY="140.0" onMouseClicked="#eventMouseClicked" prefHeight="25.0" prefWidth="285.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <Button fx:id="buttonCancel" layoutX="197.0" layoutY="263.0" mnemonicParsing="false" onAction="#eventButtonCancel" onMouseEntered="#mouseEnteredButtonCancel" onMouseExited="#mouseExitedButtonCancel" prefHeight="30.0" prefWidth="77.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="buttonOK" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#eventButtonOK" prefHeight="30.0" prefWidth="77.0" style="-fx-background-radius: 10; -fx-background-color: #002651;" text="OK" textFill="WHITE">
+      <Button fx:id="buttonOK" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#eventButtonOK" onMouseEntered="#mouseEnteredButtonOK" onMouseExited="#mouseExitedButtonOK" prefHeight="30.0" prefWidth="77.0" style="-fx-background-radius: 10; -fx-background-color: #002651;" text="OK" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Button>

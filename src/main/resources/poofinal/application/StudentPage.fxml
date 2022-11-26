@@ -19,11 +19,11 @@
          </font>
       </Text>
       <ListView fx:id="fieldListView" layoutX="240.0" layoutY="30.0" prefHeight="361.0" prefWidth="353.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
-      <Button fx:id="buttonActivities" layoutX="240.0" layoutY="405.0" mnemonicParsing="false" onAction="#eventButtonActivities" prefHeight="40.0" prefWidth="196.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Adicionar atividades" textFill="WHITE">
+      <Button fx:id="buttonActivities" layoutX="240.0" layoutY="405.0" mnemonicParsing="false" onAction="#eventButtonActivities" onMouseEntered="#mouseEnteredButtonAddActivities" onMouseExited="#mouseExitedButtonAddActivities" prefHeight="40.0" prefWidth="196.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Adicionar atividades" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font></Button>
-      <Button fx:id="buttonExit" cache="true" layoutX="489.0" layoutY="405.0" mnemonicParsing="false" onAction="#eventButtonExit" prefHeight="40.0" prefWidth="104.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Sair" textFill="WHITE">
+      <Button fx:id="buttonExit" cache="true" layoutX="489.0" layoutY="405.0" mnemonicParsing="false" onAction="#eventButtonExit" onMouseEntered="#mouseEnteredButtonExit" onMouseExited="#mouseExitedButtonExit" prefHeight="40.0" prefWidth="104.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Sair" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font></Button>
