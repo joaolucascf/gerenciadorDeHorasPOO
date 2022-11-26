@@ -7,9 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.util.Callback;
 import poofinal.application.Management;
+import poofinal.application.PageStudentCellFactor;
 import poofinal.entities.Activities;
 import poofinal.entities.Student;
 
@@ -18,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CtrlStudentPage implements Initializable {
+public class CtrlStudentPage implements Initializable{
 
     @FXML
     private Button buttonActivities;
@@ -70,6 +74,7 @@ public class CtrlStudentPage implements Initializable {
         ObservableList<Activities> activitiesObservableList;
         Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
         activitiesObservableList = FXCollections.observableArrayList(student.getListActivities());
+        fieldListView.setCellFactory(new PageStudentCellFactor());
         fieldListView.setItems(activitiesObservableList);
     }
 }

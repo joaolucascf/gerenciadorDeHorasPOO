@@ -7,26 +7,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlAddActivities">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="350.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlAddActivities">
    <children>
-      <Text layoutX="68.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Atividade">
+      <Text fill="WHITE" layoutX="68.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Atividade">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="134.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atividade">
+      <Text fill="WHITE" layoutX="133.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atividade">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="149.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Horas">
+      <Text fill="WHITE" layoutX="150.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Horas">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="choiceBoxActivities" layoutX="33.0" layoutY="115.0" onMouseClicked="#eventMouseClicked" prefHeight="25.0" prefWidth="285.0" />
-      <Button fx:id="buttonCancel" layoutX="197.0" layoutY="263.0" mnemonicParsing="false" onAction="#eventButtonCancel" prefHeight="25.0" prefWidth="68.0" text="Cancelar" />
-      <Button fx:id="buttonOK" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#eventButtonOK" prefHeight="25.0" prefWidth="68.0" text="OK" />
-      <TextField fx:id="fieldHours" alignment="CENTER" editable="false" layoutX="100.0" layoutY="180.0" promptText="Horas" />
+      <ChoiceBox fx:id="choiceBoxActivities" layoutX="34.0" layoutY="140.0" onMouseClicked="#eventMouseClicked" prefHeight="25.0" prefWidth="285.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Button fx:id="buttonCancel" layoutX="197.0" layoutY="263.0" mnemonicParsing="false" onAction="#eventButtonCancel" prefHeight="30.0" prefWidth="77.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="buttonOK" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#eventButtonOK" prefHeight="30.0" prefWidth="77.0" style="-fx-background-radius: 10; -fx-background-color: #002651;" text="OK" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <TextField fx:id="fieldHours" alignment="CENTER" editable="false" layoutX="86.0" layoutY="205.0" prefWidth="180.0" promptText="Horas" style="-fx-background-color: white; -fx-background-radius: 10;" />
    </children>
 </AnchorPane>

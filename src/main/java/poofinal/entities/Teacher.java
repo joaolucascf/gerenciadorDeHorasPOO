@@ -1,6 +1,6 @@
 package poofinal.entities;
 
-public class Teacher extends Pessoa{
+public class Teacher extends Person {
     private String password = "senhahard";
     private String siape;
 

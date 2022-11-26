@@ -4,46 +4,63 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="461.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlMainMenu">
+<AnchorPane prefHeight="461.0" prefWidth="617.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlMainMenu">
    <children>
-      <Line endX="-38.4000244140625" endY="296.0" layoutX="346.0" layoutY="140.0" startX="-38.4000244140625" startY="-116.0" />
-      <Pane layoutX="60.0" layoutY="81.0" prefHeight="298.0" prefWidth="200.0">
+      <Line endX="-38.4000244140625" endY="296.0" layoutX="346.0" layoutY="140.0" startX="-38.4000244140625" startY="-116.0" stroke="WHITE" />
+      <Pane layoutX="58.0" layoutY="82.0" prefHeight="298.0" prefWidth="200.0" style="-fx-background-color: #008080; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="buttonLoginStudent" layoutX="56.0" layoutY="210.0" mnemonicParsing="false" onAction="#eventLoginStudent" prefHeight="26.0" prefWidth="89.0" text="Login" />
-            <TextField fx:id="fieldMatriculation" layoutX="26.0" layoutY="78.0" />
-            <Label layoutX="26.0" layoutY="61.0" text="Matrícula" />
-            <Label layoutX="26.0" layoutY="132.0" text="Senha" />
-            <Text layoutX="21.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login como aluno" textAlignment="CENTER" wrappingWidth="159.30777587890623">
+            <Button fx:id="buttonLoginStudent" layoutX="14.0" layoutY="175.0" mnemonicParsing="false" onAction="#eventLoginStudent" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #002651; -fx-background-radius: 1;" text="LOGIN" textFill="WHITE">
                <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <PasswordField fx:id="fieldPasswordStudent" layoutX="26.0" layoutY="149.0" />
-            <Text layoutX="21.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainda não é cadastrado?" wrappingWidth="159.30777587890623">
+                  <Font size="17.0" />
+               </font></Button>
+            <PasswordField fx:id="fieldPasswordStudent" alignment="CENTER" layoutX="21.0" layoutY="129.0" prefHeight="27.0" prefWidth="159.0" promptText="Senha" style="-fx-background-color: #008080; -fx-border-radius: 10;">
+               <font>
+                  <Font size="15.0" />
+               </font></PasswordField>
+            <Text fill="WHITE" layoutX="26.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainda não é cadastrado?" wrappingWidth="159.30777587890623">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fx:id="textSignUpStudent" layoutX="59.0" layoutY="282.0" onMouseClicked="#eventSignUpStudent" onMouseEntered="#eventMouseEnteredStudent" onMouseExited="#eventMouseExitedStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" wrappingWidth="78.8916015625">
+            <Text fx:id="textSignUpStudent" fill="WHITE" layoutX="60.0" layoutY="253.0" onMouseClicked="#eventSignUpStudent" onMouseEntered="#eventMouseEnteredStudent" onMouseExited="#eventMouseExitedStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" wrappingWidth="78.8916015625">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Label fx:id="invalidMatriculation" layoutX="77.0" layoutY="104.0" prefHeight="17.0" prefWidth="96.0" text="Matricula inválida" textFill="RED" visible="false" />
-            <Label fx:id="invalidPassword" layoutX="94.0" layoutY="176.0" prefHeight="17.0" prefWidth="79.0" text="Senha inválida" textFill="RED" visible="false" />
-            <Label fx:id="wrongPassword" layoutX="86.0" layoutY="175.0" prefHeight="17.0" prefWidth="89.0" text="Senha incorreta" textFill="RED" visible="false" />
+            <Label fx:id="invalidMatriculation" layoutX="83.0" layoutY="110.0" prefHeight="17.0" prefWidth="96.0" text="Matricula inválida" textFill="RED" visible="false" />
+            <Label fx:id="invalidPassword" layoutX="99.0" layoutY="157.0" prefHeight="17.0" prefWidth="79.0" text="Senha inválida" textFill="RED" visible="false" />
+            <Label fx:id="wrongPassword" layoutX="87.0" layoutY="157.0" prefHeight="17.0" prefWidth="89.0" text="Senha incorreta" textFill="RED" visible="false" />
+            <TextField fx:id="fieldMatriculation" alignment="CENTER" layoutX="20.0" layoutY="79.0" prefHeight="27.0" prefWidth="159.0" promptText="Matrícula" style="-fx-background-color: #008080; -fx-border-radius: 10;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Circle fill="#002651" layoutX="101.0" layoutY="14.0" radius="48.0" stroke="#002651" strokeType="INSIDE" />
+            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="70.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../files/img/StudentIcon.png" />
+               </image>
+            </ImageView>
+            <Line endX="-38.4000244140625" endY="296.0" layoutX="61.0" layoutY="-189.0" startX="116.0" startY="296.5" stroke="WHITE" />
+            <Line endX="-38.4000244140625" endY="296.0" layoutX="61.0" layoutY="-140.0" startX="116.0" startY="296.5" stroke="WHITE" />
          </children>
       </Pane>
-      <Pane layoutX="357.0" layoutY="82.0" prefHeight="105.0" prefWidth="200.0">
+      <Pane layoutX="357.0" layoutY="82.0" prefHeight="105.0" prefWidth="200.0" style="-fx-background-color: #008080; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="buttonLoginTeacher" layoutX="56.0" layoutY="65.0" mnemonicParsing="false" onAction="#eventLoginTeacher" prefHeight="26.0" prefWidth="89.0" text="Login" />
-            <Text layoutX="21.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login como servidor" textAlignment="CENTER" wrappingWidth="159.30777587890623">
+            <Button fx:id="buttonLoginTeacher" layoutX="14.0" layoutY="53.0" mnemonicParsing="false" onAction="#eventLoginTeacher" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #002651;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
+            <Text fill="WHITE" layoutX="21.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servidor" textAlignment="CENTER" wrappingWidth="159.30777587890623">
                <font>
                   <Font size="16.0" />
                </font>

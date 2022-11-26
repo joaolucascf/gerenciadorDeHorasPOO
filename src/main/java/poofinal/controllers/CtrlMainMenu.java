@@ -47,7 +47,7 @@ public class CtrlMainMenu implements Initializable{
                 Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
                 Management.loadTableActivities();
                 student.loadFilesActivities();
-                Management.changeScene("studentPage.fxml", event);
+                Management.changeScene("StudentPage.fxml", event);
             } else {
                 fieldPasswordStudent.setStyle("-fx-border-color:red");
                 wrongPassword.setVisible(true);

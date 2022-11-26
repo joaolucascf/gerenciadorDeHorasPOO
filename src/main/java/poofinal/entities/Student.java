@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student extends Pessoa implements Serializable {
+public class Student extends Person implements Serializable {
     private String password;
     private String matriculation;
     private LocalDate joined;
@@ -27,12 +27,12 @@ public class Student extends Pessoa implements Serializable {
         this.course = course;
     }
 
-    public String getMatriculation() {
-        return matriculation;
-    }
-
     public String getPassword() {
         return password;
+    }
+
+    public String getMatriculation() {
+        return matriculation;
     }
 
     public String getJoined() {
@@ -45,6 +45,10 @@ public class Student extends Pessoa implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    public List<Activities> getListActivities(){
+        return listActivities;
     }
 
     public Course getCourse() {
@@ -74,10 +78,6 @@ public class Student extends Pessoa implements Serializable {
                 listActivities.add(activities);
             }
         }
-    }
-
-    public List<Activities> getListActivities(){
-        return listActivities;
     }
 
     public String checkExistsActivitie(Activities activitie){
