@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlStudentActivitiesView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="600.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlStudentActivitiesView">
    <children>
       <ListView fx:id="fieldListViewActivities" layoutX="22.0" layoutY="83.0" prefHeight="268.0" prefWidth="554.0" />
-      <Label fx:id="emptyName" alignment="CENTER" layoutX="115.0" layoutY="39.0" prefHeight="36.0" prefWidth="370.0">
+      <Label fx:id="emptyName" alignment="CENTER" layoutX="115.0" layoutY="39.0" prefHeight="36.0" prefWidth="370.0" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="ButtonDone" layoutX="464.0" layoutY="366.0" mnemonicParsing="false" onAction="#eventButtonDone" prefHeight="40.0" prefWidth="112.0" text="Gerar PDF">
+      <Button fx:id="buttonDone" layoutX="464.0" layoutY="366.0" mnemonicParsing="false" onAction="#eventButtonDone" onMouseEntered="#mouseEnteredButtonDone" onMouseExited="#mouseExitedButtonDone" prefHeight="40.0" prefWidth="112.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Gerar PDF" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font></Button>
-      <Button layoutX="22.0" layoutY="366.0" mnemonicParsing="false" onAction="#eventButtonExit" prefHeight="39.0" prefWidth="112.0" text="Sair">
+      <Button fx:id="buttonExit" layoutX="22.0" layoutY="366.0" mnemonicParsing="false" onAction="#eventButtonExit" onMouseEntered="#mouseEnteredButtonExit" onMouseExited="#mouseExitedButtonExit" prefHeight="39.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-background-color: #002651;" text="Sair" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font></Button>

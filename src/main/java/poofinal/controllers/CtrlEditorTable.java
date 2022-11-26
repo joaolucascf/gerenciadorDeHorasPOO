@@ -3,6 +3,7 @@ package poofinal.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,6 +24,10 @@ public class CtrlEditorTable implements Initializable {
     private TextField fieldChangeHours;
     @FXML
     private Label emptyChangeHours;
+    @FXML
+    private Button buttonCancel;
+    @FXML
+    private Button buttonOK;
     private HashMap<String, Activities> activitiesBuffer = Management.getActivitiesBuffer();
 
     @Override
@@ -59,6 +64,26 @@ public class CtrlEditorTable implements Initializable {
         });
     }
 
+    @FXML
+    void mouseEnteredButtonCancel(MouseEvent event) {
+        buttonCancel.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonCancel(MouseEvent event) {
+        buttonCancel.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+    }
+
+    @FXML
+    void mouseEnteredButtonOK(MouseEvent event) {
+        buttonOK.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonOK(MouseEvent event) {
+        buttonOK.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+    }
+
     public void initializeChoiceBox(){
         choiceBoxActivities.setValue(" ");
         for(String keyId : activitiesBuffer.keySet()){
@@ -69,11 +94,12 @@ public class CtrlEditorTable implements Initializable {
     private boolean validateEntries(){
         refreshValidationFields();
         if(choiceBoxActivities.getValue().equals(" ")) {
-            choiceBoxActivities.setStyle("-fx-border-color:red");
+            choiceBoxActivities.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red; -fx-background-color: white");
+            fieldChangeHours.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: white");
             return false;
         }
         if(fieldChangeHours.getText().isEmpty()){
-            fieldChangeHours.setStyle("-fx-border-color:red");
+            fieldChangeHours.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red; -fx-background-color: white");
             emptyChangeHours.setVisible(true);
             return false;
         }
@@ -81,7 +107,6 @@ public class CtrlEditorTable implements Initializable {
     }
 
     private void refreshValidationFields(){
-        choiceBoxActivities.setStyle(null);
         fieldChangeHours.setStyle(null);
     }
 

@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import poofinal.application.FormatClass;
@@ -20,22 +21,27 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CtrlMainMenu implements Initializable{
+    @FXML
     public Label invalidMatriculation;
-    public Label invalidPassword;
-    public Label wrongPassword;
     @FXML
     private Button buttonLoginStudent;
     @FXML
-    private Button buttonLoginTeacher;
+    public Label invalidPassword;
+    @FXML
+    public Label wrongPassword;
     @FXML
     private TextField fieldMatriculation;
     @FXML
     private PasswordField fieldPasswordStudent;
     @FXML
     private Text textSignUpStudent;
+    @FXML
+    private Button buttonLoginTeacher;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        fieldMatriculation.setStyle("-fx-text-fill: white; -fx-background-color: #008080");
+        fieldPasswordStudent.setStyle("-fx-text-fill: white; -fx-background-color: #008080");
         FormatClass.onlyAcceptNumbers(fieldMatriculation);
         FormatClass.addTextLimiter(fieldMatriculation, 8);
     }
@@ -49,7 +55,7 @@ public class CtrlMainMenu implements Initializable{
                 student.loadFilesActivities();
                 Management.changeScene("StudentPage.fxml", event);
             } else {
-                fieldPasswordStudent.setStyle("-fx-border-color:red");
+                fieldPasswordStudent.setStyle("-fx-text-fill: white; -fx-background-color: #008080");
                 wrongPassword.setVisible(true);
             }
         }
@@ -69,26 +75,46 @@ public class CtrlMainMenu implements Initializable{
     }
 
     @FXML
-    void eventMouseEnteredStudent(MouseEvent event) {
+    void mouseEnteredButtonLoginTeacher(MouseEvent event) {
+        buttonLoginTeacher.setStyle("-fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonLoginTeacher(MouseEvent event) {
+        buttonLoginTeacher.setStyle("-fx-background-color: #002651");
+    }
+
+    @FXML
+    void mouseEnteredSignUp(MouseEvent event) {
         textSignUpStudent.setFill(Color.BLUE);
         textSignUpStudent.setUnderline(true);
     }
 
     @FXML
-    void eventMouseExitedStudent(MouseEvent event) {
-        textSignUpStudent.setFill(Color.BLACK);
+    void mouseExitedSignUp(MouseEvent event) {
+        textSignUpStudent.setFill(Color.WHITE);
         textSignUpStudent.setUnderline(false);
+    }
+
+    @FXML
+    void mouseEnteredButtonLogin(MouseEvent event){
+        buttonLoginStudent.setStyle("-fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonLogin(MouseEvent event){
+        buttonLoginStudent.setStyle("-fx-background-color: #002651");
     }
 
     private boolean validateLoginEntries() {
         refreshValidators();
         if(fieldMatriculation.getText().isEmpty() || fieldMatriculation.getText().length()<8){
-            fieldMatriculation.setStyle("-fx-background-color: Teal");
+            fieldMatriculation.setStyle("-fx-text-fill: white; -fx-background-color:  #008080");
             invalidMatriculation.setVisible(true);
             return false;
         }
         if(fieldPasswordStudent.getText().isEmpty()){
-            fieldPasswordStudent.setStyle("-fx-background-color: Teal");
+            fieldPasswordStudent.setStyle("-fx-text-fill: white; -fx-background-color:  #008080");
             invalidPassword.setVisible(true);
             return false;
         }

@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import poofinal.application.ActivitiesCellFactor;
 import poofinal.application.Management;
 import poofinal.application.PDFGenerator;
@@ -27,15 +28,13 @@ public class CtrlStudentActivitiesView implements Initializable {
     @FXML
     private Label emptyName;
     @FXML
-    protected Button ButtonDone;
+    private Button buttonDone;
+    @FXML
+    private Button buttonExit;
     @FXML
     private Label emptyNoDisciplines;
     @FXML
     private ListView<Activities> fieldListViewActivities;
-
-    public Button getButtonDone() {
-        return ButtonDone;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -76,6 +75,29 @@ public class CtrlStudentActivitiesView implements Initializable {
     @FXML
     void eventButtonExit(ActionEvent event) throws IOException {
         Management.changeScene("teacherPage.fxml", event);
+    }
+
+    @FXML
+    void mouseEnteredButtonDone(MouseEvent event) {
+        buttonDone.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+
+    }
+
+    @FXML
+    void mouseExitedButtonDone(MouseEvent event) {
+        buttonDone.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+
+    }
+
+    @FXML
+    void mouseEnteredButtonExit(MouseEvent event) {
+        buttonExit.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+
+    }
+
+    @FXML
+    void mouseExitedButtonExit(MouseEvent event) {
+        buttonExit.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
     }
 
     public void loadListView(Student student) throws IOException, ClassNotFoundException {

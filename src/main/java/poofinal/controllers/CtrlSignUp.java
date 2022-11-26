@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import poofinal.application.FormatClass;
 import poofinal.application.Management;
@@ -21,18 +23,6 @@ import java.util.ResourceBundle;
 public class CtrlSignUp implements Initializable {
 
     private final int MATRICULATION_MAX_LENGTH = 8;
-
-    @FXML
-    public Label emptyName;
-    public Label invalidEmail;
-    public Label emptyEmail;
-    public Label invalidMatriculation;
-    public Label emptyMatriculation;
-
-    @FXML
-    private TextField fieldEmail;
-    @FXML
-    private TextField fieldMatriculation;
     @FXML
     private ChoiceBox<String> choiceBoxCourse;
     @FXML
@@ -40,17 +30,43 @@ public class CtrlSignUp implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBoxYear;
     @FXML
+    private Label emptyCourse;
+    @FXML
+    private Label emptyEmail;
+    @FXML
+    private Label emptyMatriculation;
+    @FXML
+    private Label emptyName;
+    @FXML
+    private Label emptySemester;
+    @FXML
+    private Label emptyYear;
+    @FXML
+    private TextField fieldEmail;
+    @FXML
+    private TextField fieldMatriculation;
+    @FXML
     private TextField fieldName;
     @FXML
     private TextField fieldPassword;
-
-    private Stage stage;
-    private Scene scene;
-
+    @FXML
+    private Label invalidEmail;
+    @FXML
+    private Label invalidMatriculation;
+    @FXML
+    private Label invalidPassword;
+    @FXML
+    private Button buttonCancel;
+    @FXML
+    private Button buttonOK;
     private String year[] = {"2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"};
     private String semester[] = {"1", "2"};
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        fieldName.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
+        fieldMatriculation.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
+        fieldEmail.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
+        fieldPassword.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
         FormatClass.onlyAcceptNumbers(fieldMatriculation);
         FormatClass.addTextLimiter(fieldMatriculation, MATRICULATION_MAX_LENGTH);
         initializeChoiceBoxes();
@@ -60,6 +76,7 @@ public class CtrlSignUp implements Initializable {
     void EventButtonCancel(ActionEvent event) throws IOException {
         Management.changeScene("mainMenu.fxml", event);
     }
+
     @FXML
     void eventButtonOK(ActionEvent event) throws IOException {
         if(validateEntries()) {
@@ -67,6 +84,27 @@ public class CtrlSignUp implements Initializable {
             Management.changeScene("successRegister.fxml", event);
         }
     }
+
+    @FXML
+    void mouseEnteredButtonCancel(MouseEvent event) {
+        buttonCancel.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonCancel(MouseEvent event) {
+        buttonCancel.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+    }
+
+    @FXML
+    void mouseEnteredButtonOK(MouseEvent event) {
+        buttonOK.setStyle("-fx-background-radius: 10; -fx-background-color: #004da5");
+    }
+
+    @FXML
+    void mouseExitedButtonOK(MouseEvent event) {
+        buttonOK.setStyle("-fx-background-radius: 10; -fx-background-color: #002651");
+    }
+
 
     private void initializeChoiceBoxes(){
         choiceBoxCourse.setValue(" "); //o valor null gera exceção, então inicializei cada box com um espaço, para identificar a string "vazia"
@@ -81,60 +119,56 @@ public class CtrlSignUp implements Initializable {
 
     private boolean validateEntries(){
         refreshValidationFields();
-        fieldName.setStyle(null);
 
         if (fieldName.getText().isEmpty()){
-            fieldName.setStyle("-fx-border-color:red");
+            fieldName.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
             emptyName.setVisible(true);
             return false;
         }
 
         if(fieldEmail.getText().isEmpty()){
-            fieldEmail.setStyle("-fx-border-color:red");
+            fieldEmail.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
             emptyEmail.setVisible(true);
             return false;
         }else
             if(!FormatClass.checkEmail(fieldEmail.getText())){
-            fieldEmail.setStyle("-fx-border-color:red");
-            invalidEmail.setVisible(true);
+                fieldEmail.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
+                invalidEmail.setVisible(true);
             return false;
         }
         if(fieldMatriculation.getText().isEmpty()){
-            fieldMatriculation.setStyle("-fx-border-color:red");
+            fieldMatriculation.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
             emptyMatriculation.setVisible(true);
             return false;
         }else if(fieldMatriculation.getLength()<8){
-            fieldMatriculation.setStyle("-fx-border-color:red");
+            fieldMatriculation.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
             invalidMatriculation.setVisible(true);
             return false;
         }
         if(choiceBoxCourse.getValue().equals(" ")){
-            choiceBoxCourse.setStyle("-fx-border-color:red");
+            choiceBoxCourse.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red; -fx-background-color: white");
+            emptyCourse.setVisible(true);
             return false;
         }
         if(choiceBoxYear.getValue().equals(" ")){
-            choiceBoxYear.setStyle("-fx-border-color:red");
+            choiceBoxYear.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red; -fx-background-color: white");
+            emptyYear.setVisible(true);
             return false;
         }
         if(choiceBoxSemester.getValue().equals(" ")){
-            choiceBoxSemester.setStyle("-fx-border-color:red");
+            choiceBoxSemester.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red; -fx-background-color: white");
+            emptySemester.setVisible(true);
             return false;
         }
         if(fieldPassword.getText().isEmpty()){
-            fieldPassword.setStyle("-fx-border-color:red");
+            fieldPassword.setStyle("-fx-text-fill: white; -fx-background-color: #2F4F4F");
+            invalidPassword.setVisible(true);
             return false;
         }
         return true;
     }
 
     private void refreshValidationFields(){
-        fieldName.setStyle(null);
-        fieldEmail.setStyle(null);
-        fieldMatriculation.setStyle(null);
-        fieldPassword.setStyle(null);
-        choiceBoxCourse.setStyle(null);
-        choiceBoxYear.setStyle(null);
-        choiceBoxSemester.setStyle(null);
         emptyName.setVisible(false);
         emptyEmail.setVisible(false);
         invalidEmail.setVisible(false);
