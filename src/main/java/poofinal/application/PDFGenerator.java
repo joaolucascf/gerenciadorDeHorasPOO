@@ -78,21 +78,24 @@ public class PDFGenerator {
     }
 
     private static void newHoursTable(Document pdfReport, List<Activities> activitiesPrintable) throws DocumentException {
-        float[] columnsWidth = {200, 50, 80};
+        String[] headerTitles = {"ATIVIDADE", "HORAS", "SITUAÇÃO", "JUSTIFICATIVA"};
+        float[] columnsWidth = {200, 60, 120,200};
         int totalOfHoursApproved = 0;
-        PdfPTable hoursTable = new PdfPTable(3);
+        Font headerFont = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
+
+        //Instancia uma Tabela no PDF, alinha ao centro, e ajusta as dimensões das colunas
+        PdfPTable hoursTable = new PdfPTable(4);
         hoursTable.setHorizontalAlignment(Element.ALIGN_CENTER);
         hoursTable.setTotalWidth(columnsWidth);
-        PdfPCell column = new PdfPCell(new Phrase("ATIVIDADE"));
-        column.setHorizontalAlignment(Element.ALIGN_CENTER);
-        hoursTable.addCell(column);
-        column = new PdfPCell(new Phrase("HORAS"));
-        column.setHorizontalAlignment(Element.ALIGN_CENTER);
-        hoursTable.addCell(column);
-        column = new PdfPCell(new Phrase("SITUAÇÃO"));
-        column.setHorizontalAlignment(Element.ALIGN_CENTER);
-        hoursTable.addCell(column);
+
+        //inicializa todas as string da header
+        for(int i=0; i<headerTitles.length; i++) {
+            PdfPCell column = new PdfPCell(new Phrase(headerTitles[i], headerFont));
+            column.setHorizontalAlignment(Element.ALIGN_CENTER);
+            hoursTable.addCell(column);
+        }
         hoursTable.setHeaderRows(1);
+
         for(int i = 0; i<activitiesPrintable.size(); i++){
             Activities printingActivitie = activitiesPrintable.get(i);
             PdfPCell hourCell = new PdfPCell(new Phrase(printingActivitie.getDescription()));
@@ -109,7 +112,15 @@ public class PDFGenerator {
             }
             hourCell.setHorizontalAlignment(Element.ALIGN_CENTER);
             hoursTable.addCell(hourCell);
+            if(printingActivitie.getJustification()==null){
+                hourCell = new PdfPCell(new Phrase("-"));
+                hourCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            }else{
+                hourCell = new PdfPCell(new Phrase(printingActivitie.getJustification()));
+            }
+            hoursTable.addCell(hourCell);
         }
+
         PdfPCell totalCell = new PdfPCell(new Phrase("TOTAL DE HORAS ADQUIRIDAS"));
         hoursTable.addCell(totalCell);
         totalCell = new PdfPCell(new Phrase(totalOfHoursApproved +" horas"));
@@ -117,6 +128,7 @@ public class PDFGenerator {
         hoursTable.addCell(totalCell);
         totalCell = new PdfPCell();
         hoursTable.addCell(totalCell);
+
         pdfReport.add(hoursTable);
     }
 
