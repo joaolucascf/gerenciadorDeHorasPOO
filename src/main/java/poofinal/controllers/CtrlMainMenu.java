@@ -13,6 +13,7 @@ import javafx.scene.text.Text;
 import poofinal.application.FormatClass;
 import poofinal.application.Management;
 import poofinal.entities.Student;
+import poofinal.entities.Teacher;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +34,7 @@ public class CtrlMainMenu implements Initializable{
     @FXML
     private Text textSignUpStudent;
 
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FormatClass.onlyAcceptNumbers(fieldMatriculation);
         FormatClass.addTextLimiter(fieldMatriculation, 8);
@@ -51,29 +53,6 @@ public class CtrlMainMenu implements Initializable{
                 wrongPassword.setVisible(true);
             }
         }
-    }
-
-    private boolean validateLoginEntries() {
-        refreshValidators();
-        if(fieldMatriculation.getText().isEmpty() || fieldMatriculation.getText().length()<8){
-            fieldMatriculation.setStyle("-fx-border-color:red");
-            invalidMatriculation.setVisible(true);
-            return false;
-        }
-        if(fieldPasswordStudent.getText().isEmpty()){
-            fieldPasswordStudent.setStyle("-fx-border-color:red");
-            invalidPassword.setVisible(true);
-            return false;
-        }
-        return true;
-    }
-
-    private void refreshValidators() {
-        fieldMatriculation.setStyle(null);
-        fieldPasswordStudent.setStyle(null);
-        invalidMatriculation.setVisible(false);
-        invalidPassword.setVisible(false);
-        wrongPassword.setVisible(false);
     }
 
     @FXML
@@ -99,5 +78,26 @@ public class CtrlMainMenu implements Initializable{
     void eventMouseExitedStudent(MouseEvent event) {
         textSignUpStudent.setFill(Color.BLACK);
         textSignUpStudent.setUnderline(false);
+    }
+
+    private boolean validateLoginEntries() {
+        refreshValidators();
+        if(fieldMatriculation.getText().isEmpty() || fieldMatriculation.getText().length()<8){
+            fieldMatriculation.setStyle("-fx-background-color: Teal");
+            invalidMatriculation.setVisible(true);
+            return false;
+        }
+        if(fieldPasswordStudent.getText().isEmpty()){
+            fieldPasswordStudent.setStyle("-fx-background-color: Teal");
+            invalidPassword.setVisible(true);
+            return false;
+        }
+        return true;
+    }
+
+    private void refreshValidators() {
+        invalidMatriculation.setVisible(false);
+        invalidPassword.setVisible(false);
+        wrongPassword.setVisible(false);
     }
 }

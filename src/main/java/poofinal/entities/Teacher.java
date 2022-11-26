@@ -1,12 +1,10 @@
 package poofinal.entities;
 
 public class Teacher extends Pessoa{
-    private String password;
+    private String password = "senhahard";
     private String siape;
 
-    public Teacher(String password, String siape, String name) {
+    public Teacher(String name) {
         super(name);
-        this.password = password;
-        this.siape = siape;
     }
 }

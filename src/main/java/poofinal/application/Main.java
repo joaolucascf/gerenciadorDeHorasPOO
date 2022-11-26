@@ -6,10 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+
 //teste
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException, ClassNotFoundException {
+
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("mainMenu.fxml")));
         stage.setTitle("Gerenciador de horas complementares");
         stage.setScene(scene);

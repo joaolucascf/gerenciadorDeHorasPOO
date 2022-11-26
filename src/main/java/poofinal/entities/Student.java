@@ -57,8 +57,7 @@ public class Student extends Pessoa implements Serializable {
         if(!Files.exists(path)) {
             Files.createDirectories(path);
         }
-            var file = new File(path + "\\" + activitie.getDescription() + checkExistsActivie(activitie) + ".dat");
-            //File file = new File(path + "\\" + activitie.getDescription() + ".dat");
+            var file = new File(path + "\\" + activitie.getDescription() + checkExistsActivitie(activitie) + ".dat");
             var outStream = new ObjectOutputStream(new FileOutputStream(file));
             outStream.writeObject(activitie);
             outStream.close();
@@ -81,7 +80,7 @@ public class Student extends Pessoa implements Serializable {
         return listActivities;
     }
 
-    public String checkExistsActivie(Activities activitie){
+    public String checkExistsActivitie(Activities activitie){
         var path = new File("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
         if (path.exists() && path.isDirectory()) {
             File listFiles[] = path.listFiles();

@@ -25,6 +25,11 @@ public class CtrlEditorTable implements Initializable {
     private Label emptyChangeHours;
     private HashMap<String, Activities> activitiesBuffer = Management.getActivitiesBuffer();
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeChoiceBox();
+    }
+
     @FXML
     void eventButtonCancel(ActionEvent event) throws IOException {
         Management.changeScene("teacherPage.fxml", event);
@@ -52,11 +57,6 @@ public class CtrlEditorTable implements Initializable {
                 }
             }
         });
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeChoiceBox();
     }
 
     public void initializeChoiceBox(){

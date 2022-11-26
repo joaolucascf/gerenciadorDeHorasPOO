@@ -12,13 +12,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class PDFGenerator {
 
     public static void pdfSaver(Path pdfPath, String pdfName) throws DocumentException, IOException {
 
-        File pdfOut = new File(pdfPath +"/"+pdfName+".pdf");
+        File pdfOut = new File(pdfPath + "/" + pdfName + "_" + LocalDate.now().format(DateTimeFormatter.ofPattern("dd_MM_yyyy")) + ".pdf");
 
         if(!Files.exists(pdfPath)) {
             Files.createDirectories(pdfPath);

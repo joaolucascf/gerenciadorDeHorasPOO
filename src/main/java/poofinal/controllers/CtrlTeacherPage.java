@@ -5,11 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import poofinal.application.Management;
 import poofinal.application.StudentCellFactor;
 import poofinal.entities.Student;
+import poofinal.entities.Teacher;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -19,6 +22,23 @@ public class CtrlTeacherPage implements Initializable {
 
     @FXML
     private ListView<Student> listViewStudents;
+    @FXML
+    private Label emptyName;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Teacher teacher = new Teacher("Ulisses");
+        emptyName.setText(teacher.getName());
+        try {
+            loadListView();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void eventMouseClicked(MouseEvent event) throws IOException {
@@ -49,19 +69,6 @@ public class CtrlTeacherPage implements Initializable {
     @FXML
     void eventButtonExit(ActionEvent event) throws IOException {
         Management.changeScene("mainMenu.fxml", event);
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            loadListView();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
     }
 
     private void loadListView() throws IOException, ClassNotFoundException {

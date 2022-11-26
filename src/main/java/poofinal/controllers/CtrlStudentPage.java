@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import poofinal.application.Management;
 import poofinal.entities.Activities;
 import poofinal.entities.Student;
@@ -21,32 +22,20 @@ public class CtrlStudentPage implements Initializable {
 
     @FXML
     private Button buttonActivities;
-
     @FXML
     private Button buttonExit;
-
     @FXML
     private Label emptyCourse;
-
     @FXML
     private Label emptyGraduationForecast;
-
     @FXML
     private Label emptyJoined;
-
     @FXML
     private Label emptyMatriculation;
-
     @FXML
     private Label emptyName;
-
     @FXML
     private ListView<Activities> fieldListView;
-
-    @FXML
-    void eventButtonActivities(ActionEvent event) throws IOException {
-        Management.changeScene("addActivities.fxml", event);
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -65,6 +54,11 @@ public class CtrlStudentPage implements Initializable {
         } catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void eventButtonActivities(ActionEvent event) throws IOException {
+        Management.changeScene("addActivities.fxml", event);
     }
 
     @FXML

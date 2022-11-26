@@ -112,9 +112,10 @@ public class Management {
         var path = Path.of("src\\main\\resources\\files\\studentAllActivities\\");
         if(!Files.exists(path)) {
             Files.createDirectories(path);
+
         }
         var file = new File(path + "\\" + student.getName() + "_" + student.getMatriculation() + ".csv");
-        var bufferedWriter = new BufferedWriter(new FileWriter(file));
+        var bufferedWriter = new BufferedWriter(new FileWriter(file,true));
         for(Activities activities : student.getListActivities()) {
             bufferedWriter.write(activities.getDescription());
             bufferedWriter.newLine();

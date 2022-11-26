@@ -25,6 +25,11 @@ public class CtrlAddActivities implements Initializable {
     private TextField fieldHours;
     private HashMap<String, Activities> activitiesBuffer = Management.getActivitiesBuffer();
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeChoiceBoxes();
+    }
+
     @FXML
     void eventButtonCancel(ActionEvent event) throws IOException {
         Management.changeScene("studentPage.fxml", event);
@@ -50,11 +55,6 @@ public class CtrlAddActivities implements Initializable {
                 }
             }
         });
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeChoiceBoxes();
     }
 
     private void initializeChoiceBoxes(){

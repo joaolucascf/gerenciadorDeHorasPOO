@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlTeacherPage">
    <children>
       <ListView fx:id="listViewStudents" layoutX="43.0" layoutY="163.0" onMouseClicked="#eventMouseClicked" prefHeight="250.0" prefWidth="350.0" />
-      <Text layoutX="308.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEACHER PAGE">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Text>
       <Button layoutX="729.0" layoutY="40.0" mnemonicParsing="false" onAction="#eventButtonExit" text="Sair">
          <font>
             <Font size="19.0" />
@@ -29,5 +24,10 @@
             <Font size="19.0" />
          </font>
       </Button>
+      <Label fx:id="emptyName" alignment="CENTER" layoutX="184.0" layoutY="80.0" prefHeight="39.0" prefWidth="418.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

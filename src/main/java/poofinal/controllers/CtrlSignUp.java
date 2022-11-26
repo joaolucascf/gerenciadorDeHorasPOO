@@ -56,17 +56,6 @@ public class CtrlSignUp implements Initializable {
         initializeChoiceBoxes();
     }
 
-    private void initializeChoiceBoxes(){
-        choiceBoxCourse.setValue(" "); //o valor null gera exceção, então inicializei cada box com um espaço, para identificar a string "vazia"
-        choiceBoxYear.setValue(" ");
-        choiceBoxSemester.setValue(" ");
-        for(Course course : Course.values()){
-            choiceBoxCourse.getItems().add(course.getDescription());
-        }
-        choiceBoxYear.getItems().addAll(year);
-        choiceBoxSemester.getItems().addAll(semester);
-    }
-
     @FXML
     void EventButtonCancel(ActionEvent event) throws IOException {
         Management.changeScene("mainMenu.fxml", event);
@@ -77,6 +66,17 @@ public class CtrlSignUp implements Initializable {
             readerInformation();
             Management.changeScene("successRegister.fxml", event);
         }
+    }
+
+    private void initializeChoiceBoxes(){
+        choiceBoxCourse.setValue(" "); //o valor null gera exceção, então inicializei cada box com um espaço, para identificar a string "vazia"
+        choiceBoxYear.setValue(" ");
+        choiceBoxSemester.setValue(" ");
+        for(Course course : Course.values()){
+            choiceBoxCourse.getItems().add(course.getDescription());
+        }
+        choiceBoxYear.getItems().addAll(year);
+        choiceBoxSemester.getItems().addAll(semester);
     }
 
     private boolean validateEntries(){

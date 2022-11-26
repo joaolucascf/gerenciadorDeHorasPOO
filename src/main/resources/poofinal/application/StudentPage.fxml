@@ -3,59 +3,74 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlStudentPage">
+<AnchorPane prefHeight="480.0" prefWidth="810.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlStudentPage">
    <children>
-      <Text layoutX="31.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingresso" wrappingWidth="154.53668212890625">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
       <Text layoutX="298.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="189.0">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text layoutX="31.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Previsão Formatura" wrappingWidth="154.53668212890625">
+      <ListView fx:id="fieldListView" layoutX="245.0" layoutY="245.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Button fx:id="buttonActivities" layoutX="604.0" layoutY="402.0" mnemonicParsing="false" onAction="#eventButtonActivities" prefHeight="40.0" prefWidth="196.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Adicionar atividades" textFill="WHITE">
          <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-      <ListView fx:id="fieldListView" layoutX="245.0" layoutY="245.0" prefHeight="200.0" prefWidth="353.0" />
-      <Text layoutX="608.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar atividades" wrappingWidth="154.53668212890625">
+            <Font size="19.0" />
+         </font></Button>
+      <Button fx:id="buttonExit" cache="true" layoutX="696.0" layoutY="30.0" mnemonicParsing="false" onAction="#eventButtonExit" prefHeight="40.0" prefWidth="104.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Sair" textFill="WHITE">
          <font>
-            <Font size="17.0" />
-         </font>
-      </Text>
-      <Button fx:id="buttonActivities" layoutX="648.0" layoutY="345.0" mnemonicParsing="false" onAction="#eventButtonActivities" prefHeight="25.0" prefWidth="74.0" text="Adicionar" />
-      <Label fx:id="emptyName" layoutX="245.0" layoutY="59.0" prefHeight="51.0" prefWidth="435.0">
-         <font>
-            <Font size="35.0" />
-         </font>
-      </Label>
-      <Label fx:id="emptyMatriculation" layoutX="245.0" layoutY="121.0" prefHeight="40.0" prefWidth="255.0">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="emptyCourse" layoutX="245.0" layoutY="177.0" prefHeight="40.0" prefWidth="353.0">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="emptyJoined" layoutX="31.0" layoutY="279.0" prefHeight="40.0" prefWidth="147.0" textAlignment="CENTER">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="emptyGraduationForecast" layoutX="31.0" layoutY="395.0" prefHeight="40.0" prefWidth="147.0" textAlignment="CENTER">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Button fx:id="buttonExit" layoutX="685.0" layoutY="72.0" mnemonicParsing="false" onAction="#eventButtonExit" prefHeight="25.0" prefWidth="74.0" text="Sair" />
+            <Font size="19.0" />
+         </font></Button>
+      <Pane layoutX="14.0" layoutY="30.0" prefHeight="415.0" prefWidth="204.0">
+         <children>
+            <Circle fill="#002651" layoutX="102.0" layoutY="100.0" radius="98.0" stroke="#002651" strokeType="INSIDE" />
+            <ImageView fitHeight="113.0" fitWidth="113.0" layoutX="47.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../files/img/StudentIcon.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="emptyCourse" layoutX="14.0" layoutY="272.0" prefHeight="40.0" prefWidth="196.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="emptyName" layoutX="14.0" layoutY="208.0" prefHeight="40.0" prefWidth="189.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="emptyMatriculation" layoutX="14.0" layoutY="240.0" prefHeight="40.0" prefWidth="189.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Text layoutX="14.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingresso:" wrappingWidth="63.53668212890625">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="emptyJoined" alignment="CENTER" layoutX="73.0" layoutY="305.0" prefHeight="40.0" prefWidth="71.0" textAlignment="CENTER" textOverrun="CLIP">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Text fontSmoothingType="LCD" layoutX="10.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Previsão Formatura:" textAlignment="CENTER" wrappingWidth="135.53668212890625">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="emptyGraduationForecast" alignment="CENTER" layoutX="35.0" layoutY="356.0" prefHeight="40.0" prefWidth="147.0" style="-fx-background-radius: 10;" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
