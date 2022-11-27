@@ -26,12 +26,12 @@
                <font>
                   <Font size="20.0" />
                </font></PasswordField>
-            <Text fill="WHITE" layoutX="98.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainda não é cadastrado?" wrappingWidth="159.30777587890623">
+            <Text fill="WHITE" layoutX="99.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainda não é cadastrado?" wrappingWidth="159.30777587890623">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fx:id="textSignUpStudent" fill="WHITE" layoutX="132.0" layoutY="372.0" onMouseClicked="#eventSignUpStudent" onMouseEntered="#mouseEnteredSignUp" onMouseExited="#mouseExitedSignUp" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" wrappingWidth="78.8916015625">
+            <Text fx:id="textSignUpStudent" fill="WHITE" layoutX="133.0" layoutY="409.0" onMouseClicked="#eventSignUpStudent" onMouseEntered="#mouseEnteredSignUp" onMouseExited="#mouseExitedSignUp" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" wrappingWidth="78.8916015625">
                <font>
                   <Font size="14.0" />
                </font>
