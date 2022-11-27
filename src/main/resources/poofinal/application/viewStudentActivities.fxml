@@ -6,22 +6,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="600.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlStudentActivitiesView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlStudentActivitiesView">
    <children>
-      <ListView fx:id="fieldListViewActivities" layoutX="22.0" layoutY="83.0" prefHeight="268.0" prefWidth="554.0" />
-      <Label fx:id="emptyName" alignment="CENTER" layoutX="115.0" layoutY="39.0" prefHeight="36.0" prefWidth="370.0" textFill="WHITE">
+      <ListView fx:id="fieldListViewActivities" layoutX="30.0" layoutY="87.0" prefHeight="402.0" prefWidth="967.0" />
+      <Label fx:id="studentName" layoutX="30.0" layoutY="44.0" prefHeight="18.0" prefWidth="370.0" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="buttonDone" layoutX="464.0" layoutY="366.0" mnemonicParsing="false" onAction="#eventButtonDone" onMouseEntered="#mouseEnteredButtonDone" onMouseExited="#mouseExitedButtonDone" prefHeight="40.0" prefWidth="112.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Gerar PDF" textFill="WHITE">
+      <Button fx:id="buttonDone" layoutX="858.0" layoutY="502.0" mnemonicParsing="false" onAction="#eventButtonDone" onMouseEntered="#mouseEnteredButtonDone" onMouseExited="#mouseExitedButtonDone" prefHeight="60.0" prefWidth="151.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Gerar PDF" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font></Button>
-      <Button fx:id="buttonExit" layoutX="22.0" layoutY="366.0" mnemonicParsing="false" onAction="#eventButtonExit" onMouseEntered="#mouseEnteredButtonExit" onMouseExited="#mouseExitedButtonExit" prefHeight="39.0" prefWidth="112.0" style="-fx-background-radius: 10; -fx-background-color: #002651;" text="Sair" textFill="WHITE">
+      <Button fx:id="buttonExit" layoutX="22.0" layoutY="502.0" mnemonicParsing="false" onAction="#eventButtonExit" onMouseEntered="#mouseEnteredButtonExit" onMouseExited="#mouseExitedButtonExit" prefHeight="60.0" prefWidth="151.0" style="-fx-background-radius: 10; -fx-background-color: #002651;" text="Sair" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font></Button>
       <Label fx:id="emptyNoDisciplines" layoutX="476.0" layoutY="351.0" prefHeight="17.0" prefWidth="100.0" text="Não há disciplinas" textFill="RED" visible="false" />
+      <Label layoutX="30.0" layoutY="14.0" prefHeight="18.0" prefWidth="370.0" text="Atividades do Aluno" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

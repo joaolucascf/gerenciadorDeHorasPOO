@@ -3,30 +3,54 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="545.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlTeacherPage">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlTeacherPage">
    <children>
-      <ListView fx:id="listViewStudents" layoutX="28.0" layoutY="67.0" onMouseClicked="#eventMouseClicked" prefHeight="296.0" prefWidth="485.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
-      <Button fx:id="buttonExit" layoutX="458.0" layoutY="21.0" mnemonicParsing="false" onAction="#eventButtonExit" onMouseEntered="#mouseEnteredButtonExit" onMouseExited="#mouseExitedButtonExit" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Sair" textFill="WHITE">
+      <ListView fx:id="listViewStudents" layoutX="371.0" layoutY="76.0" onMouseClicked="#eventMouseClicked" prefHeight="474.0" prefWidth="630.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <Button fx:id="buttonExit" layoutX="920.0" layoutY="14.0" mnemonicParsing="false" onAction="#eventButtonExit" onMouseEntered="#mouseEnteredButtonExit" onMouseExited="#mouseExitedButtonExit" prefHeight="50.0" prefWidth="81.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Sair" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonEdit" layoutX="42.0" layoutY="432.0" mnemonicParsing="false" onAction="#eventButtonEditTable" onMouseEntered="#mouseEnteredButtonEdit" onMouseExited="#mouseExitedButtonEdit" prefHeight="42.0" prefWidth="286.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Editar Tabela" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="buttonEdit" layoutX="379.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonEditTable" onMouseEntered="#mouseEnteredButtonEdit" onMouseExited="#mouseExitedButtonEdit" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Editar Tabela" textFill="WHITE">
+      <Button fx:id="buttonView" layoutX="42.0" layoutY="493.0" mnemonicParsing="false" onAction="#eventButtonViewReceipts" onMouseEntered="#mouseEnteredButtonView" onMouseExited="#mouseExitedButtonView" prefHeight="42.0" prefWidth="286.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Visualizar comprovantes" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="buttonView" layoutX="28.0" layoutY="373.0" mnemonicParsing="false" onAction="#eventButtonViewReceipts" onMouseEntered="#mouseEnteredButtonView" onMouseExited="#mouseExitedButtonView" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Visualizar comprovantes" textFill="WHITE">
+      <Label fx:id="teacherName" layoutX="45.0" layoutY="307.0" prefHeight="0.0" prefWidth="286.0" textFill="WHITE">
          <font>
-            <Font size="19.0" />
+            <Font size="24.0" />
          </font>
-      </Button>
-      <Label fx:id="emptyName" alignment="CENTER" layoutX="28.0" layoutY="21.0" prefHeight="39.0" prefWidth="418.0" textFill="WHITE">
+      </Label>
+      <Label layoutX="45.0" layoutY="349.0" prefHeight="30.0" prefWidth="57.0" text="SIAPE:" textFill="WHITE">
          <font>
-            <Font size="27.0" />
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="SIAPEfield" layoutX="101.0" layoutY="349.0" prefHeight="30.0" prefWidth="226.0" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Circle fill="#002651" layoutX="185.0" layoutY="174.0" radius="98.0" stroke="#002651" strokeType="INSIDE" />
+      <ImageView fitHeight="113.0" fitWidth="113.0" layoutX="129.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../files/img/StudentIcon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="56.0" layoutY="22.0" prefHeight="35.0" prefWidth="264.0" text="MÓDULO DO SERVIDOR" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
          </font>
       </Label>
    </children>

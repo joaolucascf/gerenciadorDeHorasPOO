@@ -13,25 +13,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="461.0" prefWidth="617.0" style="-fx-background-color: #2F4F4F;" stylesheets="stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlMainMenu">
+<AnchorPane prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlMainMenu">
    <children>
-      <Line endX="-38.4000244140625" endY="296.0" layoutX="346.0" layoutY="140.0" startX="-38.4000244140625" startY="-116.0" stroke="WHITE" />
-      <Pane layoutX="58.0" layoutY="82.0" prefHeight="298.0" prefWidth="200.0" style="-fx-background-color: #008080; -fx-background-radius: 10;">
+      <Line endX="-38.4000244140625" endY="296.0" layoutX="551.0" layoutY="204.0" startX="-38.4000244140625" startY="-116.0" stroke="WHITE" />
+      <Pane layoutX="90.0" layoutY="57.0" prefHeight="462.0" prefWidth="346.0" style="-fx-background-color: #008080; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="buttonLoginStudent" layoutX="14.0" layoutY="175.0" mnemonicParsing="false" onAction="#eventLoginStudent" onMouseEntered="#mouseEnteredButtonLogin" onMouseExited="#mouseExitedButtonLogin" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #002651; -fx-background-radius: 1;" text="LOGIN" textFill="WHITE">
+            <Button fx:id="buttonLoginStudent" layoutX="86.0" layoutY="294.0" mnemonicParsing="false" onAction="#eventLoginStudent" onMouseEntered="#mouseEnteredButtonLogin" onMouseExited="#mouseExitedButtonLogin" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #002651; -fx-background-radius: 1;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font></Button>
-            <PasswordField fx:id="fieldPasswordStudent" alignment="CENTER" layoutX="21.0" layoutY="129.0" prefHeight="27.0" prefWidth="159.0" promptText="Senha" style="-fx-background-color: #008080; -fx-border-radius: 10;">
+            <PasswordField fx:id="fieldPasswordStudent" alignment="CENTER" layoutX="72.0" layoutY="174.0" prefHeight="44.0" prefWidth="202.0" promptText="Senha" style="-fx-background-color: #008080; -fx-border-radius: 10;">
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font></PasswordField>
-            <Text fill="WHITE" layoutX="26.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainda não é cadastrado?" wrappingWidth="159.30777587890623">
+            <Text fill="WHITE" layoutX="98.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainda não é cadastrado?" wrappingWidth="159.30777587890623">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fx:id="textSignUpStudent" fill="WHITE" layoutX="60.0" layoutY="253.0" onMouseClicked="#eventSignUpStudent" onMouseEntered="#mouseEnteredSignUp" onMouseExited="#mouseExitedSignUp" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" wrappingWidth="78.8916015625">
+            <Text fx:id="textSignUpStudent" fill="WHITE" layoutX="132.0" layoutY="372.0" onMouseClicked="#eventSignUpStudent" onMouseEntered="#mouseEnteredSignUp" onMouseExited="#mouseExitedSignUp" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" wrappingWidth="78.8916015625">
                <font>
                   <Font size="14.0" />
                </font>
@@ -39,28 +39,29 @@
             <Label fx:id="invalidMatriculation" layoutX="83.0" layoutY="110.0" prefHeight="17.0" prefWidth="96.0" text="Matricula inválida" textFill="RED" visible="false" />
             <Label fx:id="invalidPassword" layoutX="99.0" layoutY="157.0" prefHeight="17.0" prefWidth="79.0" text="Senha inválida" textFill="RED" visible="false" />
             <Label fx:id="wrongPassword" layoutX="87.0" layoutY="157.0" prefHeight="17.0" prefWidth="89.0" text="Senha incorreta" textFill="RED" visible="false" />
-            <TextField fx:id="fieldMatriculation" alignment="CENTER" layoutX="20.0" layoutY="79.0" prefHeight="27.0" prefWidth="159.0" promptText="Matrícula" style="-fx-background-color: #008080; -fx-border-radius: 10;">
+            <TextField fx:id="fieldMatriculation" alignment="CENTER" layoutX="71.0" layoutY="92.0" prefHeight="44.0" prefWidth="202.0" promptText="Matrícula" style="-fx-background-color: #008080; -fx-border-radius: 10;">
                <font>
-                  <Font size="15.0" />
+                  <Font size="20.0" />
                </font>
             </TextField>
-            <Circle fill="#002651" layoutX="101.0" layoutY="14.0" radius="48.0" stroke="#002651" strokeType="INSIDE" />
-            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="70.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+            <Circle fill="#002651" layoutX="173.0" layoutY="14.0" radius="48.0" stroke="#002651" strokeType="INSIDE" />
+            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="142.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../files/img/StudentIcon.png" />
                </image>
             </ImageView>
-            <Line endX="-38.4000244140625" endY="296.0" layoutX="61.0" layoutY="-189.0" startX="116.0" startY="296.5" stroke="WHITE" />
-            <Line endX="-38.4000244140625" endY="296.0" layoutX="61.0" layoutY="-140.0" startX="116.0" startY="296.5" stroke="WHITE" />
+            <Line endX="-84.60000610351562" endY="296.5" layoutX="157.0" layoutY="-161.0" startX="116.0" startY="296.5" stroke="WHITE" />
+            <Line endX="-84.60000610351562" endY="296.5" layoutX="156.0" layoutY="-79.0" startX="116.0" startY="296.5" stroke="WHITE" />
          </children>
       </Pane>
-      <Pane layoutX="357.0" layoutY="82.0" prefHeight="105.0" prefWidth="200.0" style="-fx-background-color: #008080; -fx-background-radius: 10;">
+      <Pane layoutX="587.0" layoutY="57.0" prefHeight="160.0" prefWidth="346.0" style="-fx-background-color: #008080; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="buttonLoginTeacher" layoutX="14.0" layoutY="53.0" mnemonicParsing="false" onAction="#eventLoginTeacher" onMouseEntered="#mouseEnteredButtonLoginTeacher" onMouseExited="#mouseExitedButtonLoginTeacher" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #002651;" text="LOGIN" textFill="WHITE">
+            <Button fx:id="buttonLoginTeacher" layoutX="87.0" layoutY="90.0" mnemonicParsing="false" onAction="#eventLoginTeacher" onMouseEntered="#mouseEnteredButtonLoginTeacher" onMouseExited="#mouseExitedButtonLoginTeacher" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #002651;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font size="17.0" />
-               </font></Button>
-            <Text fill="WHITE" layoutX="21.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servidor" textAlignment="CENTER" wrappingWidth="159.30777587890623">
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="93.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Servidor" textAlignment="CENTER" wrappingWidth="159.30777587890623">
                <font>
                   <Font size="16.0" />
                </font>

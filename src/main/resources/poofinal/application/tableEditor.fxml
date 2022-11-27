@@ -8,35 +8,38 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlEditorTable">
+<AnchorPane prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #2F4F4F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poofinal.controllers.CtrlEditorTable">
    <children>
-      <TextField fx:id="fieldChangeHours" alignment="CENTER" layoutX="233.0" layoutY="249.0" prefHeight="25.0" prefWidth="157.0" promptText="Horas" style="-fx-border-radius: 10; -fx-background-color: white; -fx-background-radius: 10;" />
-      <Text fill="WHITE" layoutX="213.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editor de Tabela">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="182.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a Atividade">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Text>
-      <ChoiceBox fx:id="choiceBoxActivities" layoutX="183.0" layoutY="151.0" onMouseClicked="#eventMouseClicked" prefHeight="25.0" prefWidth="254.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10;" />
-      <Text fill="WHITE" layoutX="232.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Altera a Hora">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Text>
-      <Button fx:id="buttonOK" layoutX="181.0" layoutY="299.0" mnemonicParsing="false" onAction="#eventButtonChange" onMouseEntered="#mouseEnteredButtonOK" onMouseExited="#mouseExitedButtonOK" prefHeight="44.0" prefWidth="102.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Alterar" textFill="WHITE">
+      <TextField fx:id="fieldChangeHours" alignment="CENTER" layoutX="342.0" layoutY="315.0" prefHeight="36.0" prefWidth="339.0" promptText="Horas" style="-fx-border-radius: 10; -fx-background-color: white; -fx-background-radius: 10;">
          <font>
             <Font size="20.0" />
+         </font></TextField>
+      <Text fill="WHITE" layoutX="389.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editor de Tabela">
+         <font>
+            <Font size="36.0" />
          </font>
-      </Button>
-      <Button fx:id="buttonCancel" layoutX="338.0" layoutY="299.0" mnemonicParsing="false" onAction="#eventButtonCancel" onMouseEntered="#mouseEnteredButtonCancel" onMouseExited="#mouseExitedButtonCancel" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
+      </Text>
+      <Text fill="WHITE" layoutX="348.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a Atividade">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <ChoiceBox fx:id="choiceBoxActivities" layoutX="347.0" layoutY="164.0" onMouseClicked="#eventMouseClicked" prefHeight="36.0" prefWidth="339.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <Text fill="WHITE" layoutX="416.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Altere a Hora">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Button fx:id="buttonCancel" layoutX="614.0" layoutY="457.0" mnemonicParsing="false" onAction="#eventButtonCancel" onDragDetected="#eventButtonChange" onMouseEntered="#mouseEnteredButtonCancel" onMouseExited="#mouseExitedButtonCancel" prefHeight="54.0" prefWidth="134.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Cancelar" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
       <Label fx:id="emptyChangeHours" layoutX="243.0" layoutY="274.0" text="Por favor informe uma hora" textFill="RED" visible="false" />
+      <Button fx:id="buttonOK" layoutX="275.0" layoutY="457.0" mnemonicParsing="false" onAction="#eventButtonChange" onMouseEntered="#mouseEnteredButtonCancel" onMouseExited="#mouseExitedButtonCancel" prefHeight="54.0" prefWidth="134.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Alterar" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

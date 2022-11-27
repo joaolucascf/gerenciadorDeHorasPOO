@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import poofinal.application.ActivitiesCellFactor;
-import poofinal.application.DriveUpdate;
 import poofinal.application.Management;
 import poofinal.application.PDFGenerator;
 import poofinal.entities.Activities;
@@ -28,7 +27,7 @@ import java.util.ResourceBundle;
 public class CtrlStudentActivitiesView implements Initializable {
 
     @FXML
-    private Label emptyName;
+    private Label studentName;
     @FXML
     private Button buttonDone;
     @FXML
@@ -41,7 +40,7 @@ public class CtrlStudentActivitiesView implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
-        emptyName.setText(student.getName());
+        studentName.setText(student.getName());
         try {
             student.loadFilesActivities();
             loadListView(student);

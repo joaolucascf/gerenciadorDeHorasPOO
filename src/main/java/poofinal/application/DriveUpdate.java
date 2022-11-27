@@ -6,9 +6,11 @@ import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.googleapis.media.MediaHttpUploader;
 import com.google.api.client.googleapis.media.MediaHttpUploaderProgressListener;
 import com.google.api.client.http.FileContent;
+import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
@@ -58,13 +60,32 @@ public class DriveUpdate {
                 .setApplicationName(APPLICATION_NAME)
                 .build();
 
-        final java.io.File UPLOAD_FILE = new java.io.File(filePath);
+        /*final java.io.File UPLOAD_FILE = new java.io.File(filePath);
         File fileMetaData = new File();
         fileMetaData.setName(UPLOAD_FILE.getName());
         FileContent mediaContent = new FileContent("application/pdf", UPLOAD_FILE);
 
         Drive.Files.Create createFile = service.files().create(fileMetaData, mediaContent);
         createFile.getMediaHttpUploader().setDirectUploadEnabled(true);
-        createFile.execute();
+        createFile.execute();*/
+    }
+
+    public static String createFolder(Drive service) throws IOException {
+
+        // File's metadata.
+        File fileMetadata = new File();
+        fileMetadata.setName("Relatórios de horas complementares");
+        fileMetadata.setMimeType("application/vnd.google-apps.folder");
+        try {
+            File file = service.files().create(fileMetadata)
+                    .setFields("id")
+                    .execute();
+            System.out.println("Folder ID: " + file.getId());
+            return file.getId();
+        } catch (GoogleJsonResponseException e) {
+            // TODO(developer) - handle error appropriately
+            System.err.println("Unable to create folder: " + e.getDetails());
+            throw e;
+        }
     }
 }

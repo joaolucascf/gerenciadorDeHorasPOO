@@ -71,6 +71,7 @@ public class Management {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(FXMLLoader.load(Management.class.getResource(nameFXML)));
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 

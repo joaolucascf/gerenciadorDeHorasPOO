@@ -7,11 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.util.Callback;
+import javafx.scene.text.Text;
 import poofinal.application.Management;
 import poofinal.application.PageStudentCellFactor;
 import poofinal.entities.Activities;
@@ -24,31 +22,27 @@ import java.util.ResourceBundle;
 
 public class CtrlStudentPage implements Initializable{
 
+    public Text textDateJoined;
+    public Text textForecast;
+    public Text textCourse;
+    public Text textMatriculation;
     @FXML
     private Button buttonActivities;
     @FXML
     private Button buttonExit;
     @FXML
-    private Label emptyCourse;
-    @FXML
-    private Label emptyGraduationForecast;
-    @FXML
-    private Label emptyJoined;
-    @FXML
-    private Label emptyMatriculation;
-    @FXML
-    private Label emptyName;
+    private Label labelName;
     @FXML
     private ListView<Activities> fieldListView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
-        emptyName.setText(student.getName());
-        emptyCourse.setText(student.getCourse().getDescription());
-        emptyMatriculation.setText(student.getMatriculation());
-        emptyJoined.setText(student.getJoined());
-        emptyGraduationForecast.setText(student.getGraduationForecast());
+        labelName.setText(student.getName());
+        textCourse.setText(textCourse.getText()+ " " +student.getCourse().getDescription());
+        textMatriculation.setText(textMatriculation.getText()+ " " +student.getMatriculation());
+        textDateJoined.setText(textDateJoined.getText()+ " " +student.getJoined());
+        textForecast.setText(textForecast.getText()+ " " +student.getGraduationForecast());
         try {
             loadListView();
         } catch (FileNotFoundException e) {

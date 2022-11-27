@@ -21,10 +21,11 @@ import java.util.ResourceBundle;
 
 public class CtrlTeacherPage implements Initializable {
 
+    public Label SIAPEfield;
     @FXML
     private ListView<Student> listViewStudents;
     @FXML
-    private Label emptyName;
+    private Label teacherName;
     @FXML
     private Button buttonEdit;
     @FXML
@@ -34,8 +35,9 @@ public class CtrlTeacherPage implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Teacher teacher = new Teacher("Ulisses");
-        emptyName.setText(teacher.getName());
+        Teacher teacher = new Teacher("Ulisses Brisolara Corrêa", "999707070");
+        teacherName.setText(teacher.getName());
+        SIAPEfield.setText(teacher.getSiape());
         try {
             loadListView();
         } catch (FileNotFoundException e) {
