@@ -35,7 +35,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Label fx:id="emptyChangeHours" layoutX="243.0" layoutY="274.0" text="Por favor informe uma hora" textFill="RED" visible="false" />
+      <Label fx:id="emptyChangeHours" layoutX="438.0" layoutY="359.0" text="Por favor informe uma hora" textFill="RED" visible="false" />
       <Button fx:id="buttonOK" layoutX="275.0" layoutY="457.0" mnemonicParsing="false" onAction="#eventButtonChange" onMouseEntered="#mouseEnteredButtonCancel" onMouseExited="#mouseExitedButtonCancel" prefHeight="54.0" prefWidth="134.0" style="-fx-background-color: #002651; -fx-background-radius: 10;" text="Alterar" textFill="WHITE">
          <font>
             <Font size="20.0" />
