@@ -60,14 +60,14 @@ public class DriveUpdate {
                 .setApplicationName(APPLICATION_NAME)
                 .build();
 
-        /*final java.io.File UPLOAD_FILE = new java.io.File(filePath);
+        final java.io.File UPLOAD_FILE = new java.io.File(filePath);
         File fileMetaData = new File();
         fileMetaData.setName(UPLOAD_FILE.getName());
         FileContent mediaContent = new FileContent("application/pdf", UPLOAD_FILE);
 
         Drive.Files.Create createFile = service.files().create(fileMetaData, mediaContent);
         createFile.getMediaHttpUploader().setDirectUploadEnabled(true);
-        createFile.execute();*/
+        createFile.execute();
     }
 
     public static String createFolder(Drive service) throws IOException {

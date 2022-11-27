@@ -122,15 +122,16 @@ public class PDFGenerator {
             }
             hoursTable.addCell(hourCell);
         }
-
-        PdfPCell totalCell = new PdfPCell(new Phrase("TOTAL DE HORAS ADQUIRIDAS"));
+        Font hourFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+        PdfPCell totalCell = new PdfPCell(new Phrase("HORAS ADQUIRIDAS", hourFont));
         hoursTable.addCell(totalCell);
         totalCell = new PdfPCell(new Phrase(totalOfHoursApproved +" horas"));
         totalCell.setHorizontalAlignment(Element.ALIGN_CENTER);
         hoursTable.addCell(totalCell);
         totalCell = new PdfPCell();
         hoursTable.addCell(totalCell);
-
+        totalCell = new PdfPCell();
+        hoursTable.addCell(totalCell);
         pdfReport.add(hoursTable);
     }
 
