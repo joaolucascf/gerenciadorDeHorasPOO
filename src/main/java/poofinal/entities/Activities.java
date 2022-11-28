@@ -7,12 +7,22 @@ public class Activities implements Serializable {
     private String description;
     private String hours;
     private String justification;
+
+    private String link;
     private boolean flag = false;
 
     public Activities(String id, String description, String hours) {
         this.id = id;
         this.description = description;
         this.hours = hours;
+    }
+
+    public void setLink(String link){
+        this.link = link;
+    }
+
+    public String getLink() {
+        return link;
     }
 
     public String getDescription() {

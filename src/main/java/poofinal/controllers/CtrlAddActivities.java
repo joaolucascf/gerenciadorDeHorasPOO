@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 public class CtrlAddActivities implements Initializable {
 
 
+    public TextField fieldURL;
     @FXML
     private Button buttonCancel;
     @FXML
@@ -93,7 +94,7 @@ public class CtrlAddActivities implements Initializable {
         Student student = Management.getStudentBuffer().get(Management.getKeyMatriculation());
         for(String keyId : activitiesBuffer.keySet()) {
             if(choiceBoxActivities.getValue().equals(activitiesBuffer.get(keyId).getDescription())){
-                student.setActivities(activitiesBuffer.get(keyId));
+                student.setActivities(activitiesBuffer.get(keyId), fieldURL.getText());
             }
         }
     }
@@ -102,6 +103,10 @@ public class CtrlAddActivities implements Initializable {
         refreshValidationFields();
         if(choiceBoxActivities.getValue().equals(" ")) {
             choiceBoxActivities.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red; -fx-background-color: white");
+            return false;
+        }
+        if(fieldURL.getText().isEmpty()){
+            fieldURL.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: red; -fx-background-color: white");
             return false;
         }
         return true;

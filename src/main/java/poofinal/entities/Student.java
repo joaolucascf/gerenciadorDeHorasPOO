@@ -55,7 +55,8 @@ public class Student extends Person implements Serializable {
         return course;
     }
 
-    public void setActivities(Activities activitie) throws IOException {
+    public void setActivities(Activities activitie, String link) throws IOException {
+        activitie.setLink(link);
         listActivities.add(activitie);
         var path = Path.of("src\\main\\resources\\files\\studentActivities\\" + getName() + "\\");
         if(!Files.exists(path)) {

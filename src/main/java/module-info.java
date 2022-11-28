@@ -11,6 +11,7 @@ module poofinal.hoursmanager {
     requires com.google.api.services.drive;
     requires com.google.api.client.json.gson;
     requires jdk.httpserver;
+    requires java.desktop;
 
     opens poofinal.application to javafx.fxml;
     exports poofinal.application;
